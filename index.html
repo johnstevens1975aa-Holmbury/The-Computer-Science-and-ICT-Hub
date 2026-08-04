@@ -8,84 +8,79 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700;800;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--black:#020202;--panel:#1c1917;--gold:#a66b1f;--gold2:#f4d68a;--cream:#f3efe5;--muted:#c9c1b6;--cyan:#67e8f9;--green:#86efac;--purple:#c4b5fd;--amber:#fbbf24;--red:#ef4444;--blue:#60a5fa;--indigo:#818cf8;--radius:24px;}
-*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:#000;color:var(--cream);font-family:Inter,Arial,sans-serif;line-height:1.7;} body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 12% -8%,rgba(166,107,31,.22),transparent 34%),radial-gradient(circle at 85% 0,rgba(103,232,249,.13),transparent 35%),#000;z-index:-1;pointer-events:none;}
-a{color:inherit;text-decoration:none} .wrap{width:min(1040px,92vw);margin:0 auto;padding:18px 0 90px} .subject-gateway{position:fixed;right:22px;bottom:22px;z-index:99;background:#15130f;border:2px solid rgba(212,175,55,.65);color:#ffe8a3;border-radius:999px;padding:16px 24px;font-weight:900;font-size:1.05rem;box-shadow:0 18px 40px rgba(0,0,0,.55)}
-.home-hero{min-height:360px;border:2px solid rgba(166,107,31,.65);border-radius:0 0 34px 34px;background:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.88)),radial-gradient(circle at 70% 0,rgba(14,165,233,.26),transparent 38%),linear-gradient(135deg,#0f172a,#111827 65%,#020617);padding:46px 5vw;display:flex;align-items:flex-end;box-shadow:0 22px 60px rgba(0,0,0,.55)}
-.home-title h1{font-family:Alegreya,serif;font-size:clamp(2.4rem,7vw,5.6rem);line-height:.92;margin:0;color:#fff7e6;text-shadow:0 6px 30px #000} .home-title p{font-size:1.15rem;color:#d6d3d1;max-width:760px} .top-menu{position:fixed;right:22px;top:22px;z-index:80;background:#181512;border:2px solid rgba(166,107,31,.8);border-radius:24px;color:#f6c66d;font-size:2rem;padding:18px 22px;cursor:pointer}
-.drawer{position:fixed;inset:0 0 0 auto;width:min(410px,92vw);background:#11100e;border-left:2px solid rgba(166,107,31,.55);z-index:120;padding:24px;transform:translateX(105%);transition:.25s;box-shadow:-20px 0 50px rgba(0,0,0,.7)} .drawer.open{transform:translateX(0)} .drawer button,.drawer a{display:block;width:100%;margin:9px 0;padding:13px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.35);background:rgba(255,255,255,.04);color:#ffe8a3;font-weight:900;text-align:left;cursor:pointer}
-.section-title{font-family:Alegreya,serif;font-size:clamp(2rem,5vw,3.5rem);color:#f3f0e8;margin:42px 0 18px} .intro-card{background:rgba(28,25,23,.88);border:1.5px solid rgba(212,175,55,.3);border-radius:22px;padding:22px;margin:22px 0;box-shadow:0 20px 50px rgba(0,0,0,.35)}
-.topic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:16px;margin:26px 0} .topic-card{text-align:left;border:1.6px solid rgba(212,175,55,.4);border-radius:22px;padding:20px;background:linear-gradient(135deg,rgba(28,25,23,.96),rgba(13,10,7,.96));color:#f3efe5;box-shadow:0 18px 38px rgba(0,0,0,.35);cursor:pointer;font-family:inherit} .topic-card:hover{border-color:#f4d68a;transform:translateY(-2px)} .topic-card strong{display:block;font-family:Alegreya,serif;font-size:1.5rem;color:#fff3c4;margin:5px 0} .topic-card em{display:block;color:#c9c1b6;font-style:normal;font-size:.9rem} .topic-num{font-size:.72rem;letter-spacing:.13em;color:#fbbf24;font-weight:900;text-transform:uppercase}
-.topic-page{display:none} .topic-page.active{display:block} .topic-hero{position:relative;min-height:270px;border:2px solid rgba(166,107,31,.75);border-radius:0 0 34px 34px;margin:0 0 30px;overflow:hidden;box-shadow:0 18px 60px rgba(0,0,0,.6)} .hero-glow{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.9),rgba(0,0,0,.12))} .hero-text{position:absolute;left:clamp(24px,6vw,58px);bottom:34px;right:90px} .topic-label{font-size:.86rem;letter-spacing:.18em;color:#fbbf24;font-weight:900;text-transform:uppercase} .topic-hero h1{font-family:Alegreya,serif;font-size:clamp(2rem,6vw,4.2rem);line-height:.98;margin:8px 0;color:#fff7e6;text-shadow:0 6px 30px #000} .topic-hero p{color:#e7dfd0;max-width:780px} .hero-menu{position:absolute;right:24px;top:26px;background:#17120d;color:#fbbf24;border:2px solid rgba(166,107,31,.75);border-radius:22px;font-size:1.8rem;padding:17px 22px;cursor:pointer;z-index:2} .close-topic{float:right;margin:0 0 18px;background:#23180d;color:#f7d58a;border:2px solid #8a4d0d;border-radius:16px;padding:12px 20px;font-weight:900;cursor:pointer}
-.framework-panel{clear:both;background:rgba(28,25,23,.9);border:2px solid rgba(255,255,255,.18);border-radius:22px;padding:16px;margin:18px auto;width:min(960px,92vw)} .logo-row{display:inline-flex;gap:8px;margin:0 15px 10px 0;vertical-align:middle} .round-logo{width:43px;height:43px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;border:3px solid rgba(255,255,255,.18);box-shadow:0 5px 14px rgba(0,0,0,.35)} .tl{background:#e0f7ff}.hpl{background:#e9ffd9}.global{background:#065f9a}.ai{background:#1d237d} .badge{display:inline-block;margin:6px;padding:9px 15px;border-radius:12px;font-weight:900;border:2px solid currentColor;background:rgba(255,255,255,.08)} .cyan{color:#155e75;background:#cffafe} .green{color:#166534;background:#dcfce7} .amber{color:#92400e;background:#fffbeb} .red{color:#fff;background:#b91c1c;border-color:#dc2626} .blue{color:#fff;background:#1d4f82;border-color:#60a5fa} .indigo{color:#fff;background:#1e1b6b;border-color:#818cf8}
-.ko-btn{display:block;margin:24px 0;background:linear-gradient(135deg,#2cc17b,#216348);color:#fff;border:none;border-radius:20px;padding:21px 34px;font-weight:900;font-size:1.35rem;cursor:pointer;box-shadow:0 18px 35px rgba(0,0,0,.35)} .main-text{width:min(960px,92vw);margin:0 auto} .content-section h2{font-family:Alegreya,serif;color:#f1ede6;font-size:clamp(2rem,4vw,3.3rem);line-height:1.05;margin:38px 0 14px} .content-section p{font-size:clamp(1.08rem,2.2vw,1.55rem);color:#e7e0d3;line-height:1.9} .activity-strip{background:#211d15;border-left:10px solid #b4a7ff;border-radius:0 18px 18px 0;padding:22px;margin:34px 0} .activity-strip h3{color:#c4b5fd;margin:0 0 10px;text-transform:uppercase} textarea{width:100%;min-height:130px;margin:12px 0;background:#12100c;color:#fff;border:1.5px solid rgba(212,175,55,.35);border-radius:14px;padding:14px;font-family:inherit;font-size:1rem} .button-row{display:flex;flex-wrap:wrap;gap:10px} .button-row button,.ai-card button,.info-card button{background:#234f7d;color:#fff;border:none;border-radius:12px;padding:10px 14px;font-weight:900;cursor:pointer} .feedback,.tutor-response{margin-top:12px;background:rgba(255,255,255,.06);border-radius:12px;padding:12px;color:#d7d1c7}
-.split-section{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:32px 0} .info-card,.quote-card,.ai-card,.resource-box{border:2px solid rgba(212,175,55,.25);border-radius:22px;padding:20px;background:rgba(18,16,13,.88);box-shadow:0 16px 40px rgba(0,0,0,.35)} .info-card h3,.quote-card h3,.ai-card h3,.resource-box h3{font-family:Alegreya,serif;color:#fbbf24;font-size:1.6rem;margin:0 0 10px} .purple{border-color:rgba(196,181,253,.45)} .gold{border-color:rgba(251,191,36,.45)} blockquote{font-family:Alegreya,serif;font-size:1.5rem;color:#f5e5bd;margin:6px 0} .resource-grid{display:flex;flex-wrap:wrap;gap:10px} .link-btn{display:inline-block;padding:10px 13px;border-radius:12px;background:#0f766e;color:#fff;font-weight:900}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:200;display:none;align-items:center;justify-content:center;padding:18px} .modal.show{display:flex} .modal-card{max-width:720px;width:100%;background:#11100e;border:2px solid rgba(212,175,55,.45);border-radius:24px;padding:24px;max-height:86vh;overflow:auto} .modal-card h2{font-family:Alegreya,serif;color:#fbbf24;font-size:2.2rem} .modal-card li{margin:10px 0} .home-only{display:block} .home-only.hidden{display:none}
-@media(max-width:700px){.topic-hero{min-height:230px}.framework-panel{font-size:.84rem}.badge{padding:8px 10px}.subject-gateway{left:50%;right:auto;transform:translateX(-50%);bottom:16px;width:max-content}}
+
+:root{--black:#020202;--panel:#1c1917;--gold:#a66b1f;--gold2:#f4d68a;--cream:#f3efe5;--muted:#c9c1b6;--cyan:#67e8f9;--green:#86efac;--purple:#c4b5fd;--amber:#fbbf24;--red:#ef4444;--blue:#60a5fa;--indigo:#818cf8}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#000;color:var(--cream);font-family:Inter,Arial,sans-serif;line-height:1.7}body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 12% -8%,rgba(166,107,31,.22),transparent 34%),radial-gradient(circle at 85% 0,rgba(103,232,249,.13),transparent 35%),#000;z-index:-1;pointer-events:none}a{color:inherit;text-decoration:none}.wrap{width:min(1040px,92vw);margin:0 auto;padding:18px 0 90px}.subject-gateway{position:fixed;right:22px;bottom:22px;z-index:99;background:#15130f;border:2px solid rgba(212,175,55,.65);color:#ffe8a3;border-radius:999px;padding:16px 24px;font-weight:900;font-size:1.05rem;box-shadow:0 18px 40px rgba(0,0,0,.55)}.home-hero{min-height:360px;border:2px solid rgba(166,107,31,.65);border-radius:0 0 34px 34px;background:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.88)),radial-gradient(circle at 70% 0,rgba(14,165,233,.26),transparent 38%),linear-gradient(135deg,#0f172a,#111827 65%,#020617);padding:46px 5vw;display:flex;align-items:flex-end;box-shadow:0 22px 60px rgba(0,0,0,.55)}.home-title h1{font-family:Alegreya,serif;font-size:clamp(2.4rem,7vw,5.6rem);line-height:.92;margin:0;color:#fff7e6;text-shadow:0 6px 30px #000}.home-title p{font-size:1.15rem;color:#d6d3d1;max-width:760px}.top-menu{position:fixed;right:22px;top:22px;z-index:80;background:#181512;border:2px solid rgba(166,107,31,.8);border-radius:24px;color:#f6c66d;font-size:2rem;padding:18px 22px}.drawer{position:fixed;inset:0 0 0 auto;width:min(410px,92vw);background:#11100e;border-left:2px solid rgba(166,107,31,.55);z-index:120;padding:24px;transform:translateX(105%);transition:.25s;box-shadow:-20px 0 50px rgba(0,0,0,.7)}.drawer:target{transform:translateX(0)}.drawer a{display:block;width:100%;margin:9px 0;padding:13px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.35);background:rgba(255,255,255,.04);color:#ffe8a3;font-weight:900;text-align:left}.section-title{font-family:Alegreya,serif;font-size:clamp(2rem,5vw,3.5rem);color:#f3f0e8;margin:42px 0 18px}.intro-card{background:rgba(28,25,23,.88);border:1.5px solid rgba(212,175,55,.3);border-radius:22px;padding:22px;margin:22px 0;box-shadow:0 20px 50px rgba(0,0,0,.35)}.topic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:16px;margin:26px 0}.topic-card{text-align:left;border:1.6px solid rgba(212,175,55,.4);border-radius:22px;padding:20px;background:linear-gradient(135deg,rgba(28,25,23,.96),rgba(13,10,7,.96));color:#f3efe5;box-shadow:0 18px 38px rgba(0,0,0,.35)}.topic-card:hover{border-color:#f4d68a;transform:translateY(-2px)}.topic-card strong{display:block;font-family:Alegreya,serif;font-size:1.5rem;color:#fff3c4;margin:5px 0}.topic-card em{display:block;color:#c9c1b6;font-style:normal;font-size:.9rem}.topic-num{font-size:.72rem;letter-spacing:.13em;color:#fbbf24;font-weight:900;text-transform:uppercase}.topic-page{padding-bottom:60px}.topic-hero{position:relative;min-height:270px;border:2px solid rgba(166,107,31,.75);border-radius:0 0 34px 34px;margin:0 0 30px;overflow:hidden;box-shadow:0 18px 60px rgba(0,0,0,.6)}.hero-glow{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.9),rgba(0,0,0,.12))}.hero-text{position:absolute;left:clamp(24px,6vw,58px);bottom:34px;right:90px}.topic-label{font-size:.86rem;letter-spacing:.18em;color:#fbbf24;font-weight:900;text-transform:uppercase}.topic-hero h1{font-family:Alegreya,serif;font-size:clamp(2rem,6vw,4.2rem);line-height:.98;margin:8px 0;color:#fff7e6;text-shadow:0 6px 30px #000}.topic-hero p{color:#e7dfd0;max-width:780px}.hero-menu{position:absolute;right:24px;top:26px;background:#17120d;color:#fbbf24;border:2px solid rgba(166,107,31,.75);border-radius:22px;font-size:1.8rem;padding:17px 22px;z-index:2}.close-topic{display:inline-block;float:right;margin:0 24px 18px 0;background:#23180d;color:#f7d58a;border:2px solid #8a4d0d;border-radius:16px;padding:12px 20px;font-weight:900}.framework-panel{clear:both;background:rgba(28,25,23,.9);border:2px solid rgba(255,255,255,.18);border-radius:22px;padding:16px;margin:18px auto;width:min(960px,92vw)}.logo-row{display:inline-flex;gap:8px;margin:0 15px 10px 0;vertical-align:middle}.round-logo{width:43px;height:43px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;border:3px solid rgba(255,255,255,.18);box-shadow:0 5px 14px rgba(0,0,0,.35)}.tl{background:#e0f7ff}.hpl{background:#e9ffd9}.global{background:#065f9a}.ai{background:#1d237d}.badge{display:inline-block;margin:6px;padding:9px 15px;border-radius:12px;font-weight:900;border:2px solid currentColor;background:rgba(255,255,255,.08)}.cyan{color:#155e75;background:#cffafe}.green{color:#166534;background:#dcfce7}.amber{color:#92400e;background:#fffbeb}.red{color:#fff;background:#b91c1c;border-color:#dc2626}.blue{color:#fff;background:#1d4f82;border-color:#60a5fa}.indigo{color:#fff;background:#1e1b6b;border-color:#818cf8}.ko-details{width:min(960px,92vw);margin:24px auto}.ko-details summary{list-style:none;display:inline-block;background:linear-gradient(135deg,#2cc17b,#216348);color:#fff;border:none;border-radius:20px;padding:21px 34px;font-weight:900;font-size:1.35rem;cursor:pointer;box-shadow:0 18px 35px rgba(0,0,0,.35)}.ko-details ul{background:rgba(17,16,14,.95);border:2px solid rgba(212,175,55,.35);border-radius:18px;padding:20px 34px}.main-text{width:min(960px,92vw);margin:0 auto}.content-section h2{font-family:Alegreya,serif;color:#f1ede6;font-size:clamp(2rem,4vw,3.3rem);line-height:1.05;margin:38px 0 14px}.content-section p{font-size:clamp(1.08rem,2.2vw,1.55rem);color:#e7e0d3;line-height:1.9}.activity-strip{background:#211d15;border-left:10px solid #b4a7ff;border-radius:0 18px 18px 0;padding:22px;margin:34px 0}.activity-strip h3{color:#c4b5fd;margin:0 0 10px;text-transform:uppercase}textarea{width:100%;min-height:130px;margin:12px 0;background:#12100c;color:#fff;border:1.5px solid rgba(212,175,55,.35);border-radius:14px;padding:14px;font-family:inherit;font-size:1rem}.button-row{display:flex;flex-wrap:wrap;gap:10px}.button-row button,.ai-card button,.info-card button{background:#234f7d;color:#fff;border:none;border-radius:12px;padding:10px 14px;font-weight:900;cursor:pointer}.feedback,.tutor-response{margin-top:12px;background:rgba(255,255,255,.06);border-radius:12px;padding:12px;color:#d7d1c7}.split-section{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:32px 0}.info-card,.quote-card,.ai-card,.resource-box{border:2px solid rgba(212,175,55,.25);border-radius:22px;padding:20px;background:rgba(18,16,13,.88);box-shadow:0 16px 40px rgba(0,0,0,.35)}.info-card h3,.quote-card h3,.ai-card h3,.resource-box h3{font-family:Alegreya,serif;color:#fbbf24;font-size:1.6rem;margin:0 0 10px}.purple{border-color:rgba(196,181,253,.45)}.gold{border-color:rgba(251,191,36,.45)}blockquote{font-family:Alegreya,serif;font-size:1.5rem;color:#f5e5bd;margin:6px 0}.resource-grid{display:flex;flex-wrap:wrap;gap:10px}.link-btn{display:inline-block;padding:10px 13px;border-radius:12px;background:#0f766e;color:#fff;font-weight:900}@media(max-width:700px){.topic-hero{min-height:240px}.framework-panel{font-size:.84rem}.badge{padding:8px 10px}.subject-gateway{left:50%;right:auto;transform:translateX(-50%);bottom:16px;width:max-content}}
+
 </style>
 </head>
 <body>
 <a class="subject-gateway" href="https://johnstevens1975aa-holmbury.github.io/Learning-Hubs/">← Subject Gateway</a>
-<button class="top-menu" onclick="openMenu()">☰</button>
+<a class="top-menu" href="#drawer">☰</a>
 <nav class="drawer" id="drawer">
-  <button onclick="closeMenu()">✕ Close</button>
-  <button onclick="showHome();closeMenu()">🏠 Home</button>
-  <button onclick="openTopic('devices');closeMenu()">💻 Digital Devices — Input, Output and Storage</button><button onclick="openTopic('networks');closeMenu()">🌐 Connectivity, Networks and Communication</button><button onclick="openTopic('security');closeMenu()">🔐 Network Security, Data Protection and Safe Use</button><button onclick="openTopic('spreadsheets');closeMenu()">📊 Spreadsheets, Formulae, Functions and Charts</button><button onclick="openTopic('documents');closeMenu()">📄 Document Production, Formatting and Communication</button><button onclick="openTopic('files');closeMenu()">🖼️ Files, Images, Layout and Digital Media</button><button onclick="openTopic('databases');closeMenu()">🗃️ Databases, Tables, Queries and Reports</button><button onclick="openTopic('html');closeMenu()">🌍 HTML, CSS and Web Authoring</button>
-  <a href="#staff" onclick="showHome();closeMenu()">👩‍🏫 Staff Portal</a>
+<a href="#home">✕ Close</a>
+<a href="#home">🏠 Home</a>
+<a href="#topic-devices">💻 Digital Devices, Input, Output and Storage</a>
+<a href="#topic-networks">🌐 Connectivity, Networks and Communication</a>
+<a href="#topic-security">🔐 Network Security, Data Protection and Safe Use</a>
+<a href="#topic-spreadsheets">📊 Spreadsheets, Formulae, Functions and Charts</a>
+<a href="#topic-documents">📄 Document Production, Formatting and Communication</a>
+<a href="#topic-files">🖼️ Files, Images, Layout and Digital Media</a>
+<a href="#topic-databases">🗃️ Databases, Tables, Queries and Reports</a>
+<a href="#topic-html">🌍 HTML, CSS and Web Authoring</a>
+<a href="#staff">👩‍🏫 Staff Portal</a>
 </nav>
-<header class="home-hero home-only" id="homeHero"><div class="home-title"><div class="topic-label">💻 iGCSE ICT</div><h1>The Computer Science and ICT Hub</h1><p>Focused Year 10 and 11 iGCSE ICT build. This version replicates the History Hub visual standard: large topic hero panels, T&L/HPL/AI badge links, knowledge organisers, student activities, quizzes, AI tutor support and staff planning prompts.</p></div></header>
-<main class="wrap home-only" id="homeContent">
-  <section class="intro-card"><h2 class="section-title">iGCSE ICT Learning Route</h2><p>Open a topic to study the core explanation, complete the activity, check understanding through the quiz, and use the AI Tutor to improve your exam response. This file intentionally focuses only on iGCSE ICT for now.</p></section>
-  <div class="topic-grid"><button class="topic-card" onclick="openTopic('devices')">
+<header class="home-hero" id="home"><div class="home-title"><div class="topic-label">💻 iGCSE ICT</div><h1>The Computer Science and ICT Hub</h1><p>Focused Year 10 and 11 iGCSE ICT build. This version replicates the History Hub visual standard: large topic hero panels, T&L/HPL/AI badge links, knowledge organisers, student activities, quizzes, AI tutor support and staff planning prompts.</p></div></header>
+<main class="wrap"><section class="intro-card"><h2 class="section-title">iGCSE ICT Learning Route</h2><p>Open a topic to study the core explanation, complete the activity, check understanding through the quiz, and use the AI Tutor to improve your exam response. This file intentionally focuses only on iGCSE ICT for now.</p></section><div class="topic-grid">
+<a class="topic-card" href="#topic-devices">
   <span class="topic-num">💻 TOPIC 1</span>
-  <strong>Digital Devices — Input, Output and Storage</strong>
-  <em>Open the full iGCSE ICT topic page with explanation, badges, knowledge organiser, activity, quiz, AI Tutor and resources.</em>
-</button><button class="topic-card" onclick="openTopic('networks')">
+  <strong>Digital Devices, Input, Output and Storage</strong>
+  <em>Open explanation, T&L/HPL/AI links, knowledge organiser, activity, quiz, AI Tutor and resources.</em>
+</a>
+<a class="topic-card" href="#topic-networks">
   <span class="topic-num">🌐 TOPIC 2</span>
   <strong>Connectivity, Networks and Communication</strong>
-  <em>Open the full iGCSE ICT topic page with explanation, badges, knowledge organiser, activity, quiz, AI Tutor and resources.</em>
-</button><button class="topic-card" onclick="openTopic('security')">
+  <em>Open explanation, T&L/HPL/AI links, knowledge organiser, activity, quiz, AI Tutor and resources.</em>
+</a>
+<a class="topic-card" href="#topic-security">
   <span class="topic-num">🔐 TOPIC 3</span>
   <strong>Network Security, Data Protection and Safe Use</strong>
-  <em>Open the full iGCSE ICT topic page with explanation, badges, knowledge organiser, activity, quiz, AI Tutor and resources.</em>
-</button><button class="topic-card" onclick="openTopic('spreadsheets')">
+  <em>Open explanation, T&L/HPL/AI links, knowledge organiser, activity, quiz, AI Tutor and resources.</em>
+</a>
+<a class="topic-card" href="#topic-spreadsheets">
   <span class="topic-num">📊 TOPIC 4</span>
   <strong>Spreadsheets, Formulae, Functions and Charts</strong>
-  <em>Open the full iGCSE ICT topic page with explanation, badges, knowledge organiser, activity, quiz, AI Tutor and resources.</em>
-</button><button class="topic-card" onclick="openTopic('documents')">
+  <em>Open explanation, T&L/HPL/AI links, knowledge organiser, activity, quiz, AI Tutor and resources.</em>
+</a>
+<a class="topic-card" href="#topic-documents">
   <span class="topic-num">📄 TOPIC 5</span>
   <strong>Document Production, Formatting and Communication</strong>
-  <em>Open the full iGCSE ICT topic page with explanation, badges, knowledge organiser, activity, quiz, AI Tutor and resources.</em>
-</button><button class="topic-card" onclick="openTopic('files')">
+  <em>Open explanation, T&L/HPL/AI links, knowledge organiser, activity, quiz, AI Tutor and resources.</em>
+</a>
+<a class="topic-card" href="#topic-files">
   <span class="topic-num">🖼️ TOPIC 6</span>
   <strong>Files, Images, Layout and Digital Media</strong>
-  <em>Open the full iGCSE ICT topic page with explanation, badges, knowledge organiser, activity, quiz, AI Tutor and resources.</em>
-</button><button class="topic-card" onclick="openTopic('databases')">
+  <em>Open explanation, T&L/HPL/AI links, knowledge organiser, activity, quiz, AI Tutor and resources.</em>
+</a>
+<a class="topic-card" href="#topic-databases">
   <span class="topic-num">🗃️ TOPIC 7</span>
   <strong>Databases, Tables, Queries and Reports</strong>
-  <em>Open the full iGCSE ICT topic page with explanation, badges, knowledge organiser, activity, quiz, AI Tutor and resources.</em>
-</button><button class="topic-card" onclick="openTopic('html')">
+  <em>Open explanation, T&L/HPL/AI links, knowledge organiser, activity, quiz, AI Tutor and resources.</em>
+</a>
+<a class="topic-card" href="#topic-html">
   <span class="topic-num">🌍 TOPIC 8</span>
   <strong>HTML, CSS and Web Authoring</strong>
-  <em>Open the full iGCSE ICT topic page with explanation, badges, knowledge organiser, activity, quiz, AI Tutor and resources.</em>
-</button></div>
-  <section class="intro-card" id="staff"><h2 class="section-title">Staff Portal — Planning and QA</h2><p>This staff area mirrors the History Hub planning approach. It is ready for iGCSE ICT teaching packs, PDF links, PowerPoint lesson links, practical assessment rubrics and QA evidence. The T&L, HPL and AI links on each topic page provide visible curriculum design evidence for lesson delivery and inspection discussion.</p><div class="resource-grid"><a class="link-btn" href="https://qualifications.pearson.com/" target="_blank">Pearson Edexcel ICT</a><a class="link-btn" href="https://teachcomputing.org/" target="_blank">Teach Computing</a><a class="link-btn" href="https://www.bbc.co.uk/bitesize" target="_blank">BBC Bitesize</a></div></section>
-</main>
+  <em>Open explanation, T&L/HPL/AI links, knowledge organiser, activity, quiz, AI Tutor and resources.</em>
+</a>
+</div><section class="intro-card" id="staff"><h2 class="section-title">Staff Portal — Planning and QA</h2><p>This staff area mirrors the History Hub planning approach. It is ready for iGCSE ICT teaching packs, PDF links, PowerPoint lesson links, practical assessment rubrics and QA evidence. The T&L, HPL and AI links on each topic page provide visible curriculum design evidence for lesson delivery and inspection discussion.</p><div class="resource-grid"><a class="link-btn" href="https://qualifications.pearson.com/" target="_blank">Pearson Edexcel ICT</a><a class="link-btn" href="https://teachcomputing.org/" target="_blank">Teach Computing</a><a class="link-btn" href="https://www.bbc.co.uk/bitesize" target="_blank">BBC Bitesize</a></div></section></main>
 <article class="topic-page" id="topic-devices">
-  <div class="topic-hero" style="background:linear-gradient(rgba(0,0,0,.22),rgba(0,0,0,.82)), radial-gradient(circle at 20% 20%, rgba(96,165,250,.42), transparent 36%), linear-gradient(135deg,#0f172a,#111827 55%,#020617);">
+  <div class="topic-hero" style="background:linear-gradient(rgba(0,0,0,.12),rgba(0,0,0,.84)), radial-gradient(circle at 25% 15%, rgba(59,130,246,.42), transparent 32%), linear-gradient(135deg,#0f172a,#111827 58%,#030712);">
     <div class="hero-glow"></div>
-    <button class="hero-menu" onclick="openMenu()" aria-label="Open menu">☰</button>
-    <div class="hero-text">
-      <div class="topic-label">💻 TOPIC 1</div>
-      <h1>Digital Devices — Input, Output and Storage</h1>
-      <p>Edexcel iGCSE ICT learning page built in the same visual standard as the History Hub.</p>
-    </div>
+    <a class="hero-menu" href="#home" aria-label="Return home">☰</a>
+    <div class="hero-text"><div class="topic-label">💻 TOPIC 1</div><h1>Digital Devices, Input, Output and Storage</h1><p>How ICT systems receive data, process information, store files and present results.</p></div>
   </div>
-  <button class="close-topic" onclick="showHome()">✕ Close</button>
+  <a class="close-topic" href="#home">✕ Close</a>
   <div class="framework-panel">
-    <div class="logo-row">
-      <span class="round-logo tl">📅</span><span class="round-logo hpl">⭐</span><span class="round-logo global">🌍</span><span class="round-logo ai">🤖</span>
-    </div>
+    <div class="logo-row"><span class="round-logo tl">📅</span><span class="round-logo hpl">⭐</span><span class="round-logo global">🌍</span><span class="round-logo ai">🤖</span></div>
     <a class="badge cyan" href="#staff">📘 🔎 Inquiry</a>
     <a class="badge cyan" href="#activity-devices">📘 📝 Written Analysis</a>
     <a class="badge cyan" href="#ai-devices">📘 🧠 Metacognitive Thinking</a>
@@ -98,78 +93,25 @@ a{color:inherit;text-decoration:none} .wrap{width:min(1040px,92vw);margin:0 auto
     <a class="badge indigo" href="#ai-devices">🔍 AI Critical Thinking</a>
     <a class="badge indigo" href="#ai-devices">⚖️ AI Ethics</a>
   </div>
-  <button class="ko-btn" onclick="openKO('devices')">📚 Knowledge Organiser</button>
+  <details class="ko-details"><summary>📚 Knowledge Organiser</summary><ul><li>Hardware is the physical equipment in an ICT system.</li><li>Input devices enter data, output devices present information, and storage devices save data.</li><li>Primary storage works directly with the processor; secondary storage keeps files long term.</li><li>Suitability depends on user needs, cost, speed, capacity, portability, durability and accessibility.</li></ul></details>
   <div class="main-text">
-    <section class="content-section">
-  <h2>🧠 Digital devices as ICT systems</h2>
-  <p>A digital device is not just a screen or keyboard. It is a system that accepts data, processes data, stores data and outputs information. In iGCSE ICT, students need to explain the purpose of common hardware and justify which device is most suitable for a real scenario.</p>
-</section><section class="content-section">
-  <h2>⌨️ Input, output and storage</h2>
-  <p>Input devices include keyboards, mice, scanners, microphones, sensors and cameras. Output devices include monitors, speakers, printers and projectors. Storage includes HDDs, SSDs, optical media and cloud storage. A high-quality answer compares suitability, speed, capacity, cost, portability and durability.</p>
-</section><section class="content-section">
-  <h2>🎯 Activity 1: Recommend the right device</h2>
-  <p>A school wants to set up a digital art classroom. Recommend suitable input, output and storage devices. Explain why each one is appropriate and what limitation it might have.</p>
-</section><section class="content-section">
-  <h2>🧩 Exam practice</h2>
-  <p>A business is replacing desktop computers with tablets. Explain two advantages and two disadvantages of this decision. Include device suitability and user needs in your answer.</p>
-</section>
-    <section class="activity-strip" id="activity-devices">
-      <h3>🎯 Student Activity: Apply the concept</h3>
-      <p>Write a structured response using accurate ICT vocabulary. Explain the concept, give an example from a school or business context, and evaluate one advantage and one limitation.</p>
-      <textarea id="ans-devices" placeholder="Write your answer here..."></textarea>
-      <div class="button-row">
-        <button onclick="autoMark('devices')">🤖 Auto Mark My Work</button>
-        <button onclick="improve('devices')">✨ Improve My Answer</button>
-        <button onclick="downloadAnswer('devices','Digital Devices — Input, Output and Storage')">📥 Download as Word</button>
-      </div>
-      <div class="feedback" id="fb-devices">Feedback will appear here after auto-marking.</div>
-    </section>
-    <section class="split-section">
-      <div class="info-card purple" id="debate-devices">
-        <h3>💬 ICT Debate Lab</h3>
-        <p><strong>Question:</strong> Are tablets always a better choice than desktop computers in schools?</p>
-        <p>Give one reason for, one reason against, and finish with your judgement.</p>
-      </div>
-      <div class="info-card gold" id="quiz-devices">
-        <h3>⚡ Quick Quiz</h3>
-        <p><strong>Which device is most suitable for entering a hand-drawn image into a computer?</strong></p>
-        <button onclick="quiz(this,true,'Projector')">Scanner</button>
-        <button onclick="quiz(this,false,'Think again. Read the topic explanation above.')">Speaker</button>
-        <button onclick="quiz(this,false,'Think again. Read the topic explanation above.')">Projector</button>
-        <div class="qfb"></div>
-      </div>
-    </section>
-    <section class="quote-card">
-      <h3>🧑‍💻 Computing voice</h3>
-      <blockquote>“The computer was born to solve problems that did not exist before.” — Bill Gates</blockquote>
-    </section>
-    <section class="ai-card" id="ai-devices">
-      <h3>🧠 Socrates ICT Tutor</h3>
-      <p>Ask for help explaining concepts, planning exam answers or evaluating ICT choices.</p>
-      <textarea id="tutor-devices" placeholder="Ask Socrates about this ICT topic..."></textarea>
-      <button onclick="tutor('devices')">Submit</button>
-      <div class="tutor-response" id="tr-devices">The tutor response will appear here.</div>
-    </section>
-    <section class="resource-box" id="resources-devices">
-      <h3>🔗 ICT Resource Links</h3>
-      <div class="resource-grid"><a class="link-btn" href="https://www.bbc.co.uk/bitesize" target="_blank" rel="noopener">BBC Bitesize ICT hardware</a><a class="link-btn" href="https://www.teach-ict.com/" target="_blank" rel="noopener">Teach ICT hardware tasks</a><a class="link-btn" href="https://qualifications.pearson.com/" target="_blank" rel="noopener">Pearson Edexcel ICT</a></div>
-    </section>
+    <section class="content-section"><h2>💻 Digital devices as systems</h2><p>A digital device is a system that accepts data, processes it, stores it and produces information. In Edexcel iGCSE ICT, students need to describe the purpose of common devices and explain why one device is more suitable than another for a specific user or organisation.</p></section><section class="content-section"><h2>⌨️ Input, output and storage</h2><p>Input devices include keyboards, scanners, microphones, barcode readers, cameras and sensors. Output devices include monitors, speakers, printers and projectors. Storage devices include SSDs, HDDs, memory cards, optical media and cloud storage. Strong answers compare features rather than simply naming devices.</p></section><section class="content-section"><h2>📌 Worked example</h2><p>A school setting up a digital art classroom would need graphics tablets or touchscreens for input, high-resolution monitors for output and cloud storage or SSDs for saving large image files. A clear answer would also explain limitations such as cost, training and file size.</p></section>
+    <section class="activity-strip" id="activity-devices"><h3>🎯 Activity 1: ICT application task</h3><p>A new ICT room is being designed for creative media students. Recommend suitable input, output and storage devices. Explain why each choice is appropriate and identify one limitation.</p><textarea id="ans-devices" placeholder="Write your structured ICT answer here..."></textarea><div class="button-row"><button onclick="autoMark('devices')">🤖 Auto Mark My Work</button><button onclick="improve('devices')">✨ Improve My Answer</button><button onclick="downloadAnswer('devices','Digital Devices, Input, Output and Storage')">📥 Download as Word</button></div><div class="feedback" id="fb-devices">Feedback appears here after auto-marking.</div></section>
+    <section class="split-section"><div class="info-card purple" id="debate-devices"><h3>💬 ICT Debate Lab</h3><p><strong>Question:</strong> Are tablets always a better choice than desktop computers in schools?</p><p>Give one argument for, one argument against and then make a judgement.</p></div><div class="info-card gold" id="quiz-devices"><h3>⚡ Quick Quiz</h3><p><strong>Which device is most suitable for entering a paper image into a computer?</strong></p><button onclick="quiz(this,true,'A scanner captures a physical image and converts it into digital data.')">Scanner</button><button onclick="quiz(this,false,'Think again. Return to the topic explanation and identify the key ICT term.')">Speaker</button><button onclick="quiz(this,false,'Not quite. Use the explanation above to check the method and purpose.')">Projector</button><div class="qfb"></div></div></section>
+    <section class="quote-card"><h3>🧑‍💻 Computing voice</h3><blockquote>“The computer was born to solve problems that did not exist before.” — Bill Gates</blockquote></section>
+    <section class="ai-card" id="ai-devices"><h3>🧠 Socrates ICT Tutor</h3><p>Ask for help improving an explanation, planning an exam response or evaluating a technology choice.</p><textarea id="tutor-devices" placeholder="Ask Socrates about this ICT topic..."></textarea><button onclick="tutor('devices')">Submit</button><div class="tutor-response" id="tr-devices">The tutor response appears here.</div></section>
+    <section class="resource-box" id="resources-devices"><h3>🔗 ICT Resource Links</h3><div class="resource-grid"><a class="link-btn" href="https://qualifications.pearson.com/en/qualifications/edexcel-international-gcses/international-gcse-information-and-communication-technology-2017.html" target="_blank" rel="noopener">Pearson Edexcel ICT</a><a class="link-btn" href="https://www.bbc.co.uk/bitesize" target="_blank" rel="noopener">BBC Bitesize ICT</a><a class="link-btn" href="https://www.teach-ict.com/" target="_blank" rel="noopener">Teach ICT</a></div></section>
   </div>
-</article><article class="topic-page" id="topic-networks">
-  <div class="topic-hero" style="background:linear-gradient(rgba(0,0,0,.23),rgba(0,0,0,.84)), radial-gradient(circle at 70% 20%, rgba(20,184,166,.38), transparent 36%), linear-gradient(135deg,#042f2e,#0f172a 60%,#020617);">
+</article>
+<article class="topic-page" id="topic-networks">
+  <div class="topic-hero" style="background:linear-gradient(rgba(0,0,0,.12),rgba(0,0,0,.84)), radial-gradient(circle at 70% 18%, rgba(20,184,166,.42), transparent 32%), linear-gradient(135deg,#062f2e,#111827 58%,#020617);">
     <div class="hero-glow"></div>
-    <button class="hero-menu" onclick="openMenu()" aria-label="Open menu">☰</button>
-    <div class="hero-text">
-      <div class="topic-label">🌐 TOPIC 2</div>
-      <h1>Connectivity, Networks and Communication</h1>
-      <p>Edexcel iGCSE ICT learning page built in the same visual standard as the History Hub.</p>
-    </div>
+    <a class="hero-menu" href="#home" aria-label="Return home">☰</a>
+    <div class="hero-text"><div class="topic-label">🌐 TOPIC 2</div><h1>Connectivity, Networks and Communication</h1><p>How devices connect, communicate and share resources across local and wide area networks.</p></div>
   </div>
-  <button class="close-topic" onclick="showHome()">✕ Close</button>
+  <a class="close-topic" href="#home">✕ Close</a>
   <div class="framework-panel">
-    <div class="logo-row">
-      <span class="round-logo tl">📅</span><span class="round-logo hpl">⭐</span><span class="round-logo global">🌍</span><span class="round-logo ai">🤖</span>
-    </div>
+    <div class="logo-row"><span class="round-logo tl">📅</span><span class="round-logo hpl">⭐</span><span class="round-logo global">🌍</span><span class="round-logo ai">🤖</span></div>
     <a class="badge cyan" href="#staff">📘 🔎 Inquiry</a>
     <a class="badge cyan" href="#activity-networks">📘 📝 Written Analysis</a>
     <a class="badge cyan" href="#ai-networks">📘 🧠 Metacognitive Thinking</a>
@@ -182,78 +124,25 @@ a{color:inherit;text-decoration:none} .wrap{width:min(1040px,92vw);margin:0 auto
     <a class="badge indigo" href="#ai-networks">🔍 AI Critical Thinking</a>
     <a class="badge indigo" href="#ai-networks">⚖️ AI Ethics</a>
   </div>
-  <button class="ko-btn" onclick="openKO('networks')">📚 Knowledge Organiser</button>
+  <details class="ko-details"><summary>📚 Knowledge Organiser</summary><ul><li>A network connects devices so they can share data and resources.</li><li>A LAN covers a small area; a WAN covers a wider geographical area.</li><li>Bandwidth, latency, reliability and security affect network performance.</li><li>The internet is a global network of connected networks.</li></ul></details>
   <div class="main-text">
-    <section class="content-section">
-  <h2>🔌 What is a network?</h2>
-  <p>A network is a group of connected devices that can communicate and share resources. Schools use networks for logins, file storage, printers, internet access, email and learning platforms. Students should explain both the benefits and the risks of networked systems.</p>
-</section><section class="content-section">
-  <h2>🏫 LANs and WANs</h2>
-  <p>A LAN usually covers one home, school or office building. A WAN covers a much larger area and may connect many LANs together. A strong iGCSE explanation uses scale, ownership, cost, security and speed to compare the two.</p>
-</section><section class="content-section">
-  <h2>🎯 Activity 1: Design a school network</h2>
-  <p>Design a basic network for a new ICT room. Include users, devices, servers, Wi-Fi, printers and internet access. Explain how the network supports learning and how it should be protected.</p>
-</section><section class="content-section">
-  <h2>🧩 Exam practice</h2>
-  <p>Explain why a school might use a LAN rather than standalone computers. Include file sharing, resource sharing and network security in your answer.</p>
-</section>
-    <section class="activity-strip" id="activity-networks">
-      <h3>🎯 Student Activity: Apply the concept</h3>
-      <p>Write a structured response using accurate ICT vocabulary. Explain the concept, give an example from a school or business context, and evaluate one advantage and one limitation.</p>
-      <textarea id="ans-networks" placeholder="Write your answer here..."></textarea>
-      <div class="button-row">
-        <button onclick="autoMark('networks')">🤖 Auto Mark My Work</button>
-        <button onclick="improve('networks')">✨ Improve My Answer</button>
-        <button onclick="downloadAnswer('networks','Connectivity, Networks and Communication')">📥 Download as Word</button>
-      </div>
-      <div class="feedback" id="fb-networks">Feedback will appear here after auto-marking.</div>
-    </section>
-    <section class="split-section">
-      <div class="info-card purple" id="debate-networks">
-        <h3>💬 ICT Debate Lab</h3>
-        <p><strong>Question:</strong> Should schools rely more on cloud storage than local network drives?</p>
-        <p>Give one reason for, one reason against, and finish with your judgement.</p>
-      </div>
-      <div class="info-card gold" id="quiz-networks">
-        <h3>⚡ Quick Quiz</h3>
-        <p><strong>What is the best definition of a LAN?</strong></p>
-        <button onclick="quiz(this,true,'A single computer with no connection')">A network covering a small local area</button>
-        <button onclick="quiz(this,false,'Think again. Read the topic explanation above.')">A global network</button>
-        <button onclick="quiz(this,false,'Think again. Read the topic explanation above.')">Another ICT method</button>
-        <div class="qfb"></div>
-      </div>
-    </section>
-    <section class="quote-card">
-      <h3>🧑‍💻 Computing voice</h3>
-      <blockquote>“The network is the computer.” — John Gage</blockquote>
-    </section>
-    <section class="ai-card" id="ai-networks">
-      <h3>🧠 Socrates ICT Tutor</h3>
-      <p>Ask for help explaining concepts, planning exam answers or evaluating ICT choices.</p>
-      <textarea id="tutor-networks" placeholder="Ask Socrates about this ICT topic..."></textarea>
-      <button onclick="tutor('networks')">Submit</button>
-      <div class="tutor-response" id="tr-networks">The tutor response will appear here.</div>
-    </section>
-    <section class="resource-box" id="resources-networks">
-      <h3>🔗 ICT Resource Links</h3>
-      <div class="resource-grid"><a class="link-btn" href="https://www.bbc.co.uk/bitesize" target="_blank" rel="noopener">BBC Bitesize networks</a><a class="link-btn" href="https://teachcomputing.org/" target="_blank" rel="noopener">Teach Computing networks</a><a class="link-btn" href="https://www.netacad.com/" target="_blank" rel="noopener">Cisco networking basics</a></div>
-    </section>
+    <section class="content-section"><h2>🔌 What a network does</h2><p>Networks allow users to share files, printers, internet connections and services. A school network supports logins, learning platforms, email, printing and secure file storage.</p></section><section class="content-section"><h2>🏫 LANs and WANs</h2><p>A LAN usually covers one site, such as a school building. A WAN connects larger areas and may link different sites or organisations. Comparing the two requires more than size: ownership, cost, reliability, speed and security all matter.</p></section><section class="content-section"><h2>📌 Worked example</h2><p>A school may use a LAN for classroom computers and a WAN or internet connection to access cloud services. Students should be able to explain both the benefits and the risks of increased connectivity.</p></section>
+    <section class="activity-strip" id="activity-networks"><h3>🎯 Activity 1: ICT application task</h3><p>A new school wants a reliable network for classrooms, offices and student devices. Design a basic network and explain how it supports learning and security.</p><textarea id="ans-networks" placeholder="Write your structured ICT answer here..."></textarea><div class="button-row"><button onclick="autoMark('networks')">🤖 Auto Mark My Work</button><button onclick="improve('networks')">✨ Improve My Answer</button><button onclick="downloadAnswer('networks','Connectivity, Networks and Communication')">📥 Download as Word</button></div><div class="feedback" id="fb-networks">Feedback appears here after auto-marking.</div></section>
+    <section class="split-section"><div class="info-card purple" id="debate-networks"><h3>💬 ICT Debate Lab</h3><p><strong>Question:</strong> Should schools rely more on cloud storage than local network drives?</p><p>Give one argument for, one argument against and then make a judgement.</p></div><div class="info-card gold" id="quiz-networks"><h3>⚡ Quick Quiz</h3><p><strong>What is the best definition of a LAN?</strong></p><button onclick="quiz(this,true,'A LAN connects devices in a limited area such as a school, office or home.')">A network covering a small local area</button><button onclick="quiz(this,false,'Think again. Return to the topic explanation and identify the key ICT term.')">A global network</button><button onclick="quiz(this,false,'Not quite. Use the explanation above to check the method and purpose.')">One computer with no connection</button><div class="qfb"></div></div></section>
+    <section class="quote-card"><h3>🧑‍💻 Computing voice</h3><blockquote>“The network is the computer.” — John Gage</blockquote></section>
+    <section class="ai-card" id="ai-networks"><h3>🧠 Socrates ICT Tutor</h3><p>Ask for help improving an explanation, planning an exam response or evaluating a technology choice.</p><textarea id="tutor-networks" placeholder="Ask Socrates about this ICT topic..."></textarea><button onclick="tutor('networks')">Submit</button><div class="tutor-response" id="tr-networks">The tutor response appears here.</div></section>
+    <section class="resource-box" id="resources-networks"><h3>🔗 ICT Resource Links</h3><div class="resource-grid"><a class="link-btn" href="https://teachcomputing.org/" target="_blank" rel="noopener">Teach Computing Networks</a><a class="link-btn" href="https://www.netacad.com/" target="_blank" rel="noopener">Cisco Networking Academy</a><a class="link-btn" href="https://www.bbc.co.uk/bitesize" target="_blank" rel="noopener">BBC Bitesize Networks</a></div></section>
   </div>
-</article><article class="topic-page" id="topic-security">
-  <div class="topic-hero" style="background:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.86)), radial-gradient(circle at 30% 10%, rgba(248,113,113,.38), transparent 34%), linear-gradient(135deg,#450a0a,#111827 55%,#030712);">
+</article>
+<article class="topic-page" id="topic-security">
+  <div class="topic-hero" style="background:linear-gradient(rgba(0,0,0,.14),rgba(0,0,0,.86)), radial-gradient(circle at 32% 12%, rgba(239,68,68,.42), transparent 34%), linear-gradient(135deg,#3b0a0a,#111827 60%,#030712);">
     <div class="hero-glow"></div>
-    <button class="hero-menu" onclick="openMenu()" aria-label="Open menu">☰</button>
-    <div class="hero-text">
-      <div class="topic-label">🔐 TOPIC 3</div>
-      <h1>Network Security, Data Protection and Safe Use</h1>
-      <p>Edexcel iGCSE ICT learning page built in the same visual standard as the History Hub.</p>
-    </div>
+    <a class="hero-menu" href="#home" aria-label="Return home">☰</a>
+    <div class="hero-text"><div class="topic-label">🔐 TOPIC 3</div><h1>Network Security, Data Protection and Safe Use</h1><p>How organisations protect accounts, devices, networks and sensitive data.</p></div>
   </div>
-  <button class="close-topic" onclick="showHome()">✕ Close</button>
+  <a class="close-topic" href="#home">✕ Close</a>
   <div class="framework-panel">
-    <div class="logo-row">
-      <span class="round-logo tl">📅</span><span class="round-logo hpl">⭐</span><span class="round-logo global">🌍</span><span class="round-logo ai">🤖</span>
-    </div>
+    <div class="logo-row"><span class="round-logo tl">📅</span><span class="round-logo hpl">⭐</span><span class="round-logo global">🌍</span><span class="round-logo ai">🤖</span></div>
     <a class="badge cyan" href="#staff">📘 🔎 Inquiry</a>
     <a class="badge cyan" href="#activity-security">📘 📝 Written Analysis</a>
     <a class="badge cyan" href="#ai-security">📘 🧠 Metacognitive Thinking</a>
@@ -266,78 +155,25 @@ a{color:inherit;text-decoration:none} .wrap{width:min(1040px,92vw);margin:0 auto
     <a class="badge indigo" href="#ai-security">🔍 AI Critical Thinking</a>
     <a class="badge indigo" href="#ai-security">⚖️ AI Ethics</a>
   </div>
-  <button class="ko-btn" onclick="openKO('security')">📚 Knowledge Organiser</button>
+  <details class="ko-details"><summary>📚 Knowledge Organiser</summary><ul><li>Cybersecurity protects systems and data from unauthorised access.</li><li>Passwords, permissions, firewalls, backups and anti-malware reduce risk.</li><li>Encryption makes data unreadable without the correct key.</li><li>Users are often a major security risk if training and procedures are weak.</li></ul></details>
   <div class="main-text">
-    <section class="content-section">
-  <h2>🛡️ Why security matters</h2>
-  <p>ICT systems store sensitive personal, financial and organisational data. Network security is about preventing unauthorised access, accidental loss, malware, phishing and insider misuse. Students need to match threats to suitable protection methods.</p>
-</section><section class="content-section">
-  <h2>🔑 Protection methods</h2>
-  <p>Common methods include strong passwords, user access levels, firewalls, anti-virus software, encryption, backups and staff training. Strong answers explain the purpose of each method and why no single method is enough.</p>
-</section><section class="content-section">
-  <h2>🎯 Activity 1: Security audit</h2>
-  <p>A small business has weak passwords, shared logins and no backups. Write a short security report explaining the risks and recommending improvements.</p>
-</section><section class="content-section">
-  <h2>🧩 Exam practice</h2>
-  <p>Explain two ways a school could reduce the risk of unauthorised access to student records. Give a clear reason for each method.</p>
-</section>
-    <section class="activity-strip" id="activity-security">
-      <h3>🎯 Student Activity: Apply the concept</h3>
-      <p>Write a structured response using accurate ICT vocabulary. Explain the concept, give an example from a school or business context, and evaluate one advantage and one limitation.</p>
-      <textarea id="ans-security" placeholder="Write your answer here..."></textarea>
-      <div class="button-row">
-        <button onclick="autoMark('security')">🤖 Auto Mark My Work</button>
-        <button onclick="improve('security')">✨ Improve My Answer</button>
-        <button onclick="downloadAnswer('security','Network Security, Data Protection and Safe Use')">📥 Download as Word</button>
-      </div>
-      <div class="feedback" id="fb-security">Feedback will appear here after auto-marking.</div>
-    </section>
-    <section class="split-section">
-      <div class="info-card purple" id="debate-security">
-        <h3>💬 ICT Debate Lab</h3>
-        <p><strong>Question:</strong> Is human behaviour a bigger security risk than weak technology?</p>
-        <p>Give one reason for, one reason against, and finish with your judgement.</p>
-      </div>
-      <div class="info-card gold" id="quiz-security">
-        <h3>⚡ Quick Quiz</h3>
-        <p><strong>Which method makes data unreadable without a key?</strong></p>
-        <button onclick="quiz(this,true,'Formatting')">Encryption</button>
-        <button onclick="quiz(this,false,'Think again. Read the topic explanation above.')">Compression</button>
-        <button onclick="quiz(this,false,'Think again. Read the topic explanation above.')">Formatting</button>
-        <div class="qfb"></div>
-      </div>
-    </section>
-    <section class="quote-card">
-      <h3>🧑‍💻 Computing voice</h3>
-      <blockquote>“Security is a process, not a product.” — Bruce Schneier</blockquote>
-    </section>
-    <section class="ai-card" id="ai-security">
-      <h3>🧠 Socrates ICT Tutor</h3>
-      <p>Ask for help explaining concepts, planning exam answers or evaluating ICT choices.</p>
-      <textarea id="tutor-security" placeholder="Ask Socrates about this ICT topic..."></textarea>
-      <button onclick="tutor('security')">Submit</button>
-      <div class="tutor-response" id="tr-security">The tutor response will appear here.</div>
-    </section>
-    <section class="resource-box" id="resources-security">
-      <h3>🔗 ICT Resource Links</h3>
-      <div class="resource-grid"><a class="link-btn" href="https://www.ncsc.gov.uk/cyberfirst" target="_blank" rel="noopener">NCSC CyberFirst resources</a><a class="link-btn" href="https://www.bbc.co.uk/bitesize" target="_blank" rel="noopener">BBC Bitesize cybersecurity</a><a class="link-btn" href="https://www.internetmatters.org/" target="_blank" rel="noopener">Internet Matters online safety</a></div>
-    </section>
+    <section class="content-section"><h2>🛡️ Why security matters</h2><p>ICT systems store personal, financial and organisational data. Security protects confidentiality, integrity and availability. Students need to match realistic threats to suitable protection methods.</p></section><section class="content-section"><h2>🔑 Protection methods</h2><p>Firewalls monitor traffic, anti-malware detects threats, permissions limit access, encryption protects data and backups support recovery. A strong exam response explains why several layers are needed together.</p></section><section class="content-section"><h2>📌 Worked example</h2><p>A business with shared passwords, no backups and no staff training is vulnerable. A good security report would recommend unique logins, stronger passwords, role-based access, firewall settings, anti-malware, backups and staff awareness training.</p></section>
+    <section class="activity-strip" id="activity-security"><h3>🎯 Activity 1: ICT application task</h3><p>Write a short security audit for a small business. Identify three risks and recommend a suitable protection method for each risk.</p><textarea id="ans-security" placeholder="Write your structured ICT answer here..."></textarea><div class="button-row"><button onclick="autoMark('security')">🤖 Auto Mark My Work</button><button onclick="improve('security')">✨ Improve My Answer</button><button onclick="downloadAnswer('security','Network Security, Data Protection and Safe Use')">📥 Download as Word</button></div><div class="feedback" id="fb-security">Feedback appears here after auto-marking.</div></section>
+    <section class="split-section"><div class="info-card purple" id="debate-security"><h3>💬 ICT Debate Lab</h3><p><strong>Question:</strong> Is human behaviour a bigger security risk than weak technology?</p><p>Give one argument for, one argument against and then make a judgement.</p></div><div class="info-card gold" id="quiz-security"><h3>⚡ Quick Quiz</h3><p><strong>Which method makes data unreadable without the correct key?</strong></p><button onclick="quiz(this,true,'Encryption converts data into coded form so it cannot be understood without the key.')">Encryption</button><button onclick="quiz(this,false,'Think again. Return to the topic explanation and identify the key ICT term.')">Compression</button><button onclick="quiz(this,false,'Not quite. Use the explanation above to check the method and purpose.')">Formatting</button><div class="qfb"></div></div></section>
+    <section class="quote-card"><h3>🧑‍💻 Computing voice</h3><blockquote>“Security is a process, not a product.” — Bruce Schneier</blockquote></section>
+    <section class="ai-card" id="ai-security"><h3>🧠 Socrates ICT Tutor</h3><p>Ask for help improving an explanation, planning an exam response or evaluating a technology choice.</p><textarea id="tutor-security" placeholder="Ask Socrates about this ICT topic..."></textarea><button onclick="tutor('security')">Submit</button><div class="tutor-response" id="tr-security">The tutor response appears here.</div></section>
+    <section class="resource-box" id="resources-security"><h3>🔗 ICT Resource Links</h3><div class="resource-grid"><a class="link-btn" href="https://www.ncsc.gov.uk/" target="_blank" rel="noopener">National Cyber Security Centre</a><a class="link-btn" href="https://www.internetmatters.org/" target="_blank" rel="noopener">Internet Matters</a><a class="link-btn" href="https://www.bbc.co.uk/bitesize" target="_blank" rel="noopener">BBC Bitesize Cybersecurity</a></div></section>
   </div>
-</article><article class="topic-page" id="topic-spreadsheets">
-  <div class="topic-hero" style="background:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.86)), radial-gradient(circle at 20% 25%, rgba(34,197,94,.38), transparent 34%), linear-gradient(135deg,#052e16,#111827 60%,#020617);">
+</article>
+<article class="topic-page" id="topic-spreadsheets">
+  <div class="topic-hero" style="background:linear-gradient(rgba(0,0,0,.14),rgba(0,0,0,.86)), radial-gradient(circle at 20% 20%, rgba(34,197,94,.42), transparent 34%), linear-gradient(135deg,#052e16,#111827 60%,#020617);">
     <div class="hero-glow"></div>
-    <button class="hero-menu" onclick="openMenu()" aria-label="Open menu">☰</button>
-    <div class="hero-text">
-      <div class="topic-label">📊 TOPIC 4</div>
-      <h1>Spreadsheets, Formulae, Functions and Charts</h1>
-      <p>Edexcel iGCSE ICT learning page built in the same visual standard as the History Hub.</p>
-    </div>
+    <a class="hero-menu" href="#home" aria-label="Return home">☰</a>
+    <div class="hero-text"><div class="topic-label">📊 TOPIC 4</div><h1>Spreadsheets, Formulae, Functions and Charts</h1><p>Using spreadsheet models to calculate, analyse and communicate data.</p></div>
   </div>
-  <button class="close-topic" onclick="showHome()">✕ Close</button>
+  <a class="close-topic" href="#home">✕ Close</a>
   <div class="framework-panel">
-    <div class="logo-row">
-      <span class="round-logo tl">📅</span><span class="round-logo hpl">⭐</span><span class="round-logo global">🌍</span><span class="round-logo ai">🤖</span>
-    </div>
+    <div class="logo-row"><span class="round-logo tl">📅</span><span class="round-logo hpl">⭐</span><span class="round-logo global">🌍</span><span class="round-logo ai">🤖</span></div>
     <a class="badge cyan" href="#staff">📘 🔎 Inquiry</a>
     <a class="badge cyan" href="#activity-spreadsheets">📘 📝 Written Analysis</a>
     <a class="badge cyan" href="#ai-spreadsheets">📘 🧠 Metacognitive Thinking</a>
@@ -350,78 +186,25 @@ a{color:inherit;text-decoration:none} .wrap{width:min(1040px,92vw);margin:0 auto
     <a class="badge indigo" href="#ai-spreadsheets">🔍 AI Critical Thinking</a>
     <a class="badge indigo" href="#ai-spreadsheets">⚖️ AI Ethics</a>
   </div>
-  <button class="ko-btn" onclick="openKO('spreadsheets')">📚 Knowledge Organiser</button>
+  <details class="ko-details"><summary>📚 Knowledge Organiser</summary><ul><li>Spreadsheets store data in cells arranged by rows and columns.</li><li>Formulae perform calculations; functions are built-in formulae.</li><li>Relative and absolute references control how formulae copy.</li><li>Charts communicate trends, comparisons and proportions.</li></ul></details>
   <div class="main-text">
-    <section class="content-section">
-  <h2>🧮 Spreadsheet modelling</h2>
-  <p>A spreadsheet can model business, scientific or school data. Students need to understand cells, rows, columns, formulae, functions, formatting, validation, sorting, filtering and charts. The most powerful answers explain why a spreadsheet method is efficient.</p>
-</section><section class="content-section">
-  <h2>📈 Formulae, functions and charts</h2>
-  <p>Formulae begin with = and can use operators such as +, -, * and /. Functions such as SUM, AVERAGE, MIN, MAX and IF make common calculations quicker. Charts should be selected based on the data: bar charts for comparisons, line charts for trends and pie charts for proportions.</p>
-</section><section class="content-section">
-  <h2>🎯 Activity 1: Build a school trip cost model</h2>
-  <p>Design a spreadsheet model for a school trip. Include ticket cost, transport cost, number of students, total cost, average cost per student and a chart showing cost categories.</p>
-</section><section class="content-section">
-  <h2>🧩 Exam practice</h2>
-  <p>Explain why a spreadsheet is useful for modelling costs. Include formulae, automatic recalculation and charts in your answer.</p>
-</section>
-    <section class="activity-strip" id="activity-spreadsheets">
-      <h3>🎯 Student Activity: Apply the concept</h3>
-      <p>Write a structured response using accurate ICT vocabulary. Explain the concept, give an example from a school or business context, and evaluate one advantage and one limitation.</p>
-      <textarea id="ans-spreadsheets" placeholder="Write your answer here..."></textarea>
-      <div class="button-row">
-        <button onclick="autoMark('spreadsheets')">🤖 Auto Mark My Work</button>
-        <button onclick="improve('spreadsheets')">✨ Improve My Answer</button>
-        <button onclick="downloadAnswer('spreadsheets','Spreadsheets, Formulae, Functions and Charts')">📥 Download as Word</button>
-      </div>
-      <div class="feedback" id="fb-spreadsheets">Feedback will appear here after auto-marking.</div>
-    </section>
-    <section class="split-section">
-      <div class="info-card purple" id="debate-spreadsheets">
-        <h3>💬 ICT Debate Lab</h3>
-        <p><strong>Question:</strong> Are charts always better than tables for communicating spreadsheet data?</p>
-        <p>Give one reason for, one reason against, and finish with your judgement.</p>
-      </div>
-      <div class="info-card gold" id="quiz-spreadsheets">
-        <h3>⚡ Quick Quiz</h3>
-        <p><strong>Which function would calculate the total of cells B2 to B10?</strong></p>
-        <button onclick="quiz(this,true,'=MAX(B2:B10)')">=SUM(B2:B10)</button>
-        <button onclick="quiz(this,false,'Think again. Read the topic explanation above.')">=AVERAGE(B2:B10)</button>
-        <button onclick="quiz(this,false,'Think again. Read the topic explanation above.')">=MAX(B2:B10)</button>
-        <div class="qfb"></div>
-      </div>
-    </section>
-    <section class="quote-card">
-      <h3>🧑‍💻 Computing voice</h3>
-      <blockquote>“Data beats emotions.” — Sean Rad</blockquote>
-    </section>
-    <section class="ai-card" id="ai-spreadsheets">
-      <h3>🧠 Socrates ICT Tutor</h3>
-      <p>Ask for help explaining concepts, planning exam answers or evaluating ICT choices.</p>
-      <textarea id="tutor-spreadsheets" placeholder="Ask Socrates about this ICT topic..."></textarea>
-      <button onclick="tutor('spreadsheets')">Submit</button>
-      <div class="tutor-response" id="tr-spreadsheets">The tutor response will appear here.</div>
-    </section>
-    <section class="resource-box" id="resources-spreadsheets">
-      <h3>🔗 ICT Resource Links</h3>
-      <div class="resource-grid"><a class="link-btn" href="https://support.microsoft.com/excel" target="_blank" rel="noopener">Microsoft Excel help</a><a class="link-btn" href="https://www.bbc.co.uk/bitesize" target="_blank" rel="noopener">BBC Bitesize spreadsheets</a><a class="link-btn" href="https://www.teach-ict.com/" target="_blank" rel="noopener">GCSE ICT spreadsheet practice</a></div>
-    </section>
+    <section class="content-section"><h2>🧮 Spreadsheet modelling</h2><p>A spreadsheet model can represent costs, marks, stock, surveys or scientific data. It allows automatic recalculation when values change and can make decisions through functions such as IF.</p></section><section class="content-section"><h2>📈 Formulae, functions and charts</h2><p>Formulae begin with = and can use operators such as +, -, * and /. Functions such as SUM, AVERAGE, MIN, MAX, COUNTIF and IF make common tasks faster. Charts should be selected to suit the data.</p></section><section class="content-section"><h2>📌 Worked example</h2><p>A school trip spreadsheet could calculate total cost, average cost per student and profit or loss. A chart could compare transport, ticket and food costs.</p></section>
+    <section class="activity-strip" id="activity-spreadsheets"><h3>🎯 Activity 1: ICT application task</h3><p>Design a spreadsheet model for a school trip. Include total cost, average cost per student and a chart showing cost categories. Explain why a spreadsheet is suitable.</p><textarea id="ans-spreadsheets" placeholder="Write your structured ICT answer here..."></textarea><div class="button-row"><button onclick="autoMark('spreadsheets')">🤖 Auto Mark My Work</button><button onclick="improve('spreadsheets')">✨ Improve My Answer</button><button onclick="downloadAnswer('spreadsheets','Spreadsheets, Formulae, Functions and Charts')">📥 Download as Word</button></div><div class="feedback" id="fb-spreadsheets">Feedback appears here after auto-marking.</div></section>
+    <section class="split-section"><div class="info-card purple" id="debate-spreadsheets"><h3>💬 ICT Debate Lab</h3><p><strong>Question:</strong> Are charts always better than tables for communicating spreadsheet data?</p><p>Give one argument for, one argument against and then make a judgement.</p></div><div class="info-card gold" id="quiz-spreadsheets"><h3>⚡ Quick Quiz</h3><p><strong>Which function adds the values in cells B2 to B10?</strong></p><button onclick="quiz(this,true,'SUM adds all numerical values in the selected range.')">=SUM(B2:B10)</button><button onclick="quiz(this,false,'Think again. Return to the topic explanation and identify the key ICT term.')">=AVERAGE(B2:B10)</button><button onclick="quiz(this,false,'Not quite. Use the explanation above to check the method and purpose.')">=MAX(B2:B10)</button><div class="qfb"></div></div></section>
+    <section class="quote-card"><h3>🧑‍💻 Computing voice</h3><blockquote>“Data beats emotions.” — Sean Rad</blockquote></section>
+    <section class="ai-card" id="ai-spreadsheets"><h3>🧠 Socrates ICT Tutor</h3><p>Ask for help improving an explanation, planning an exam response or evaluating a technology choice.</p><textarea id="tutor-spreadsheets" placeholder="Ask Socrates about this ICT topic..."></textarea><button onclick="tutor('spreadsheets')">Submit</button><div class="tutor-response" id="tr-spreadsheets">The tutor response appears here.</div></section>
+    <section class="resource-box" id="resources-spreadsheets"><h3>🔗 ICT Resource Links</h3><div class="resource-grid"><a class="link-btn" href="https://support.microsoft.com/excel" target="_blank" rel="noopener">Microsoft Excel Help</a><a class="link-btn" href="https://www.bbc.co.uk/bitesize" target="_blank" rel="noopener">BBC Bitesize Spreadsheets</a><a class="link-btn" href="https://www.teach-ict.com/" target="_blank" rel="noopener">Teach ICT Spreadsheets</a></div></section>
   </div>
-</article><article class="topic-page" id="topic-documents">
-  <div class="topic-hero" style="background:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.86)), radial-gradient(circle at 80% 15%, rgba(250,204,21,.32), transparent 34%), linear-gradient(135deg,#422006,#171717 55%,#020617);">
+</article>
+<article class="topic-page" id="topic-documents">
+  <div class="topic-hero" style="background:linear-gradient(rgba(0,0,0,.14),rgba(0,0,0,.86)), radial-gradient(circle at 80% 14%, rgba(250,204,21,.36), transparent 34%), linear-gradient(135deg,#422006,#111827 60%,#020617);">
     <div class="hero-glow"></div>
-    <button class="hero-menu" onclick="openMenu()" aria-label="Open menu">☰</button>
-    <div class="hero-text">
-      <div class="topic-label">📄 TOPIC 5</div>
-      <h1>Document Production, Formatting and Communication</h1>
-      <p>Edexcel iGCSE ICT learning page built in the same visual standard as the History Hub.</p>
-    </div>
+    <a class="hero-menu" href="#home" aria-label="Return home">☰</a>
+    <div class="hero-text"><div class="topic-label">📄 TOPIC 5</div><h1>Document Production, Formatting and Communication</h1><p>Producing accurate, professional, audience-focused digital documents.</p></div>
   </div>
-  <button class="close-topic" onclick="showHome()">✕ Close</button>
+  <a class="close-topic" href="#home">✕ Close</a>
   <div class="framework-panel">
-    <div class="logo-row">
-      <span class="round-logo tl">📅</span><span class="round-logo hpl">⭐</span><span class="round-logo global">🌍</span><span class="round-logo ai">🤖</span>
-    </div>
+    <div class="logo-row"><span class="round-logo tl">📅</span><span class="round-logo hpl">⭐</span><span class="round-logo global">🌍</span><span class="round-logo ai">🤖</span></div>
     <a class="badge cyan" href="#staff">📘 🔎 Inquiry</a>
     <a class="badge cyan" href="#activity-documents">📘 📝 Written Analysis</a>
     <a class="badge cyan" href="#ai-documents">📘 🧠 Metacognitive Thinking</a>
@@ -434,78 +217,25 @@ a{color:inherit;text-decoration:none} .wrap{width:min(1040px,92vw);margin:0 auto
     <a class="badge indigo" href="#ai-documents">🔍 AI Critical Thinking</a>
     <a class="badge indigo" href="#ai-documents">⚖️ AI Ethics</a>
   </div>
-  <button class="ko-btn" onclick="openKO('documents')">📚 Knowledge Organiser</button>
+  <details class="ko-details"><summary>📚 Knowledge Organiser</summary><ul><li>Document production communicates information through structure and layout.</li><li>Styles, headings, images, tables, headers and footers improve consistency.</li><li>Audience and purpose should guide design choices.</li><li>Proofreading and version control improve accuracy.</li></ul></details>
   <div class="main-text">
-    <section class="content-section">
-  <h2>📝 Document design</h2>
-  <p>Document production is about using layout and formatting to communicate clearly. Students should make deliberate choices about audience, purpose, font, headings, spacing, alignment, images, tables and page structure.</p>
-</section><section class="content-section">
-  <h2>🎨 Professional formatting</h2>
-  <p>Good documents use consistent headings, readable fonts, appropriate images, meaningful captions and tidy spacing. In iGCSE ICT, students must often follow a brief exactly, so accuracy matters as much as creativity.</p>
-</section><section class="content-section">
-  <h2>🎯 Activity 1: Produce a school newsletter page</h2>
-  <p>Create a one-page newsletter for a school event. Use a title, subtitle, image, caption, table of key details, header/footer and consistent formatting.</p>
-</section><section class="content-section">
-  <h2>🧩 Exam practice</h2>
-  <p>Explain how formatting can make a document easier to read. Give examples linked to headings, spacing, images and audience.</p>
-</section>
-    <section class="activity-strip" id="activity-documents">
-      <h3>🎯 Student Activity: Apply the concept</h3>
-      <p>Write a structured response using accurate ICT vocabulary. Explain the concept, give an example from a school or business context, and evaluate one advantage and one limitation.</p>
-      <textarea id="ans-documents" placeholder="Write your answer here..."></textarea>
-      <div class="button-row">
-        <button onclick="autoMark('documents')">🤖 Auto Mark My Work</button>
-        <button onclick="improve('documents')">✨ Improve My Answer</button>
-        <button onclick="downloadAnswer('documents','Document Production, Formatting and Communication')">📥 Download as Word</button>
-      </div>
-      <div class="feedback" id="fb-documents">Feedback will appear here after auto-marking.</div>
-    </section>
-    <section class="split-section">
-      <div class="info-card purple" id="debate-documents">
-        <h3>💬 ICT Debate Lab</h3>
-        <p><strong>Question:</strong> Is simple document design more effective than decorative design?</p>
-        <p>Give one reason for, one reason against, and finish with your judgement.</p>
-      </div>
-      <div class="info-card gold" id="quiz-documents">
-        <h3>⚡ Quick Quiz</h3>
-        <p><strong>Why should styles be used in a long document?</strong></p>
-        <button onclick="quiz(this,true,'To stop images loading')">To keep formatting consistent</button>
-        <button onclick="quiz(this,false,'Think again. Read the topic explanation above.')">To delete text automatically</button>
-        <button onclick="quiz(this,false,'Think again. Read the topic explanation above.')">To stop images loading</button>
-        <div class="qfb"></div>
-      </div>
-    </section>
-    <section class="quote-card">
-      <h3>🧑‍💻 Computing voice</h3>
-      <blockquote>“Design is intelligence made visible.” — Alina Wheeler</blockquote>
-    </section>
-    <section class="ai-card" id="ai-documents">
-      <h3>🧠 Socrates ICT Tutor</h3>
-      <p>Ask for help explaining concepts, planning exam answers or evaluating ICT choices.</p>
-      <textarea id="tutor-documents" placeholder="Ask Socrates about this ICT topic..."></textarea>
-      <button onclick="tutor('documents')">Submit</button>
-      <div class="tutor-response" id="tr-documents">The tutor response will appear here.</div>
-    </section>
-    <section class="resource-box" id="resources-documents">
-      <h3>🔗 ICT Resource Links</h3>
-      <div class="resource-grid"><a class="link-btn" href="https://support.microsoft.com/word" target="_blank" rel="noopener">Microsoft Word training</a><a class="link-btn" href="https://www.bbc.co.uk/bitesize" target="_blank" rel="noopener">BBC Bitesize document production</a><a class="link-btn" href="https://www.canva.com/designschool/" target="_blank" rel="noopener">Canva design school</a></div>
-    </section>
+    <section class="content-section"><h2>📝 Professional document design</h2><p>Document production is about using structure, formatting and layout to communicate clearly. Students should explain how choices such as headings, spacing, alignment, images and captions support audience and purpose.</p></section><section class="content-section"><h2>🎨 Accuracy and consistency</h2><p>In iGCSE ICT practical tasks, following the brief is essential. Consistent styles, correct page setup, good image placement and accurate proofreading can separate a strong response from a weak one.</p></section><section class="content-section"><h2>📌 Worked example</h2><p>A school newsletter should use a clear title, consistent headings, suitable images, captions, tables, white space and a footer. The design should not distract from the message.</p></section>
+    <section class="activity-strip" id="activity-documents"><h3>🎯 Activity 1: ICT application task</h3><p>Plan a one-page newsletter for a school event. Explain your layout choices and how they help the audience understand the information quickly.</p><textarea id="ans-documents" placeholder="Write your structured ICT answer here..."></textarea><div class="button-row"><button onclick="autoMark('documents')">🤖 Auto Mark My Work</button><button onclick="improve('documents')">✨ Improve My Answer</button><button onclick="downloadAnswer('documents','Document Production, Formatting and Communication')">📥 Download as Word</button></div><div class="feedback" id="fb-documents">Feedback appears here after auto-marking.</div></section>
+    <section class="split-section"><div class="info-card purple" id="debate-documents"><h3>💬 ICT Debate Lab</h3><p><strong>Question:</strong> Is simple document design more effective than decorative design?</p><p>Give one argument for, one argument against and then make a judgement.</p></div><div class="info-card gold" id="quiz-documents"><h3>⚡ Quick Quiz</h3><p><strong>Why are styles useful in a long document?</strong></p><button onclick="quiz(this,true,'Styles apply consistent formatting to headings and paragraphs throughout a document.')">They keep formatting consistent</button><button onclick="quiz(this,false,'Think again. Return to the topic explanation and identify the key ICT term.')">They automatically delete errors</button><button onclick="quiz(this,false,'Not quite. Use the explanation above to check the method and purpose.')">They stop images loading</button><div class="qfb"></div></div></section>
+    <section class="quote-card"><h3>🧑‍💻 Computing voice</h3><blockquote>“Design is intelligence made visible.” — Alina Wheeler</blockquote></section>
+    <section class="ai-card" id="ai-documents"><h3>🧠 Socrates ICT Tutor</h3><p>Ask for help improving an explanation, planning an exam response or evaluating a technology choice.</p><textarea id="tutor-documents" placeholder="Ask Socrates about this ICT topic..."></textarea><button onclick="tutor('documents')">Submit</button><div class="tutor-response" id="tr-documents">The tutor response appears here.</div></section>
+    <section class="resource-box" id="resources-documents"><h3>🔗 ICT Resource Links</h3><div class="resource-grid"><a class="link-btn" href="https://support.microsoft.com/word" target="_blank" rel="noopener">Microsoft Word Training</a><a class="link-btn" href="https://www.canva.com/designschool/" target="_blank" rel="noopener">Canva Design School</a><a class="link-btn" href="https://www.bbc.co.uk/bitesize" target="_blank" rel="noopener">BBC Bitesize Document Production</a></div></section>
   </div>
-</article><article class="topic-page" id="topic-files">
-  <div class="topic-hero" style="background:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.86)), radial-gradient(circle at 25% 20%, rgba(236,72,153,.34), transparent 34%), linear-gradient(135deg,#500724,#111827 55%,#020617);">
+</article>
+<article class="topic-page" id="topic-files">
+  <div class="topic-hero" style="background:linear-gradient(rgba(0,0,0,.14),rgba(0,0,0,.86)), radial-gradient(circle at 25% 20%, rgba(236,72,153,.36), transparent 34%), linear-gradient(135deg,#500724,#111827 58%,#020617);">
     <div class="hero-glow"></div>
-    <button class="hero-menu" onclick="openMenu()" aria-label="Open menu">☰</button>
-    <div class="hero-text">
-      <div class="topic-label">🖼️ TOPIC 6</div>
-      <h1>Files, Images, Layout and Digital Media</h1>
-      <p>Edexcel iGCSE ICT learning page built in the same visual standard as the History Hub.</p>
-    </div>
+    <a class="hero-menu" href="#home" aria-label="Return home">☰</a>
+    <div class="hero-text"><div class="topic-label">🖼️ TOPIC 6</div><h1>Files, Images, Layout and Digital Media</h1><p>Choosing suitable file types, image formats and layouts for different purposes.</p></div>
   </div>
-  <button class="close-topic" onclick="showHome()">✕ Close</button>
+  <a class="close-topic" href="#home">✕ Close</a>
   <div class="framework-panel">
-    <div class="logo-row">
-      <span class="round-logo tl">📅</span><span class="round-logo hpl">⭐</span><span class="round-logo global">🌍</span><span class="round-logo ai">🤖</span>
-    </div>
+    <div class="logo-row"><span class="round-logo tl">📅</span><span class="round-logo hpl">⭐</span><span class="round-logo global">🌍</span><span class="round-logo ai">🤖</span></div>
     <a class="badge cyan" href="#staff">📘 🔎 Inquiry</a>
     <a class="badge cyan" href="#activity-files">📘 📝 Written Analysis</a>
     <a class="badge cyan" href="#ai-files">📘 🧠 Metacognitive Thinking</a>
@@ -518,78 +248,25 @@ a{color:inherit;text-decoration:none} .wrap{width:min(1040px,92vw);margin:0 auto
     <a class="badge indigo" href="#ai-files">🔍 AI Critical Thinking</a>
     <a class="badge indigo" href="#ai-files">⚖️ AI Ethics</a>
   </div>
-  <button class="ko-btn" onclick="openKO('files')">📚 Knowledge Organiser</button>
+  <details class="ko-details"><summary>📚 Knowledge Organiser</summary><ul><li>File type affects quality, compression and compatibility.</li><li>Bitmap images store pixels; vector images store shapes and paths.</li><li>Resolution, colour depth and compression affect size and quality.</li><li>Good layout uses proximity, contrast, alignment and repetition.</li></ul></details>
   <div class="main-text">
-    <section class="content-section">
-  <h2>🧩 File types and images</h2>
-  <p>Digital media depends on choosing appropriate file formats. Students need to compare JPEG, PNG, GIF, SVG, PDF and document formats in terms of quality, compatibility, file size and purpose.</p>
-</section><section class="content-section">
-  <h2>🖼️ Bitmap and vector graphics</h2>
-  <p>Bitmap images are made of pixels and can lose quality when enlarged. Vector images are made from shapes and can scale without losing clarity. Strong answers link image type to purpose: photos often use bitmap formats; logos often use vector formats.</p>
-</section><section class="content-section">
-  <h2>🎯 Activity 1: Choose the right file format</h2>
-  <p>A company needs a logo, a product photo and a printable poster. Recommend suitable file formats and explain why each format is appropriate.</p>
-</section><section class="content-section">
-  <h2>🧩 Exam practice</h2>
-  <p>Explain how compression can reduce file size and why this might affect image quality.</p>
-</section>
-    <section class="activity-strip" id="activity-files">
-      <h3>🎯 Student Activity: Apply the concept</h3>
-      <p>Write a structured response using accurate ICT vocabulary. Explain the concept, give an example from a school or business context, and evaluate one advantage and one limitation.</p>
-      <textarea id="ans-files" placeholder="Write your answer here..."></textarea>
-      <div class="button-row">
-        <button onclick="autoMark('files')">🤖 Auto Mark My Work</button>
-        <button onclick="improve('files')">✨ Improve My Answer</button>
-        <button onclick="downloadAnswer('files','Files, Images, Layout and Digital Media')">📥 Download as Word</button>
-      </div>
-      <div class="feedback" id="fb-files">Feedback will appear here after auto-marking.</div>
-    </section>
-    <section class="split-section">
-      <div class="info-card purple" id="debate-files">
-        <h3>💬 ICT Debate Lab</h3>
-        <p><strong>Question:</strong> Should websites prioritise image quality or fast loading speed?</p>
-        <p>Give one reason for, one reason against, and finish with your judgement.</p>
-      </div>
-      <div class="info-card gold" id="quiz-files">
-        <h3>⚡ Quick Quiz</h3>
-        <p><strong>Which image type is best for a logo that must scale cleanly?</strong></p>
-        <button onclick="quiz(this,true,'Audio file')">Vector graphic</button>
-        <button onclick="quiz(this,false,'Think again. Read the topic explanation above.')">Low resolution JPEG</button>
-        <button onclick="quiz(this,false,'Think again. Read the topic explanation above.')">Audio file</button>
-        <div class="qfb"></div>
-      </div>
-    </section>
-    <section class="quote-card">
-      <h3>🧑‍💻 Computing voice</h3>
-      <blockquote>“Simplicity is the ultimate sophistication.” — Leonardo da Vinci</blockquote>
-    </section>
-    <section class="ai-card" id="ai-files">
-      <h3>🧠 Socrates ICT Tutor</h3>
-      <p>Ask for help explaining concepts, planning exam answers or evaluating ICT choices.</p>
-      <textarea id="tutor-files" placeholder="Ask Socrates about this ICT topic..."></textarea>
-      <button onclick="tutor('files')">Submit</button>
-      <div class="tutor-response" id="tr-files">The tutor response will appear here.</div>
-    </section>
-    <section class="resource-box" id="resources-files">
-      <h3>🔗 ICT Resource Links</h3>
-      <div class="resource-grid"><a class="link-btn" href="https://edu.gcfglobal.org/" target="_blank" rel="noopener">GCF Global image basics</a><a class="link-btn" href="https://www.bbc.co.uk/bitesize" target="_blank" rel="noopener">BBC Bitesize graphics</a><a class="link-btn" href="https://www.w3schools.com/html/html_images.asp" target="_blank" rel="noopener">W3Schools HTML images</a></div>
-    </section>
+    <section class="content-section"><h2>🧩 File types</h2><p>Different file types are suitable for different jobs. JPEG is common for photographs, PNG supports transparency, SVG is useful for scalable logos and PDF preserves layout for sharing.</p></section><section class="content-section"><h2>🖼️ Bitmap and vector images</h2><p>Bitmap images can lose quality when enlarged because they are made of pixels. Vector graphics are made from shapes and can be resized without losing sharpness. Students should link image type to purpose.</p></section><section class="content-section"><h2>📌 Worked example</h2><p>A business might use SVG for a logo, JPEG for a website photo and PDF for a printable brochure. A strong answer explains why each choice fits the task.</p></section>
+    <section class="activity-strip" id="activity-files"><h3>🎯 Activity 1: ICT application task</h3><p>Recommend file formats for a company logo, product photo and printable poster. Explain quality, file size and compatibility for each choice.</p><textarea id="ans-files" placeholder="Write your structured ICT answer here..."></textarea><div class="button-row"><button onclick="autoMark('files')">🤖 Auto Mark My Work</button><button onclick="improve('files')">✨ Improve My Answer</button><button onclick="downloadAnswer('files','Files, Images, Layout and Digital Media')">📥 Download as Word</button></div><div class="feedback" id="fb-files">Feedback appears here after auto-marking.</div></section>
+    <section class="split-section"><div class="info-card purple" id="debate-files"><h3>💬 ICT Debate Lab</h3><p><strong>Question:</strong> Should websites prioritise image quality or fast loading speed?</p><p>Give one argument for, one argument against and then make a judgement.</p></div><div class="info-card gold" id="quiz-files"><h3>⚡ Quick Quiz</h3><p><strong>Which image type is best for a logo that must scale cleanly?</strong></p><button onclick="quiz(this,true,'Vector graphics can scale without becoming pixelated.')">Vector graphic</button><button onclick="quiz(this,false,'Think again. Return to the topic explanation and identify the key ICT term.')">Low-resolution JPEG</button><button onclick="quiz(this,false,'Not quite. Use the explanation above to check the method and purpose.')">Audio file</button><div class="qfb"></div></div></section>
+    <section class="quote-card"><h3>🧑‍💻 Computing voice</h3><blockquote>“Simplicity is the ultimate sophistication.” — Leonardo da Vinci</blockquote></section>
+    <section class="ai-card" id="ai-files"><h3>🧠 Socrates ICT Tutor</h3><p>Ask for help improving an explanation, planning an exam response or evaluating a technology choice.</p><textarea id="tutor-files" placeholder="Ask Socrates about this ICT topic..."></textarea><button onclick="tutor('files')">Submit</button><div class="tutor-response" id="tr-files">The tutor response appears here.</div></section>
+    <section class="resource-box" id="resources-files"><h3>🔗 ICT Resource Links</h3><div class="resource-grid"><a class="link-btn" href="https://www.w3schools.com/html/html_images.asp" target="_blank" rel="noopener">W3Schools Images</a><a class="link-btn" href="https://edu.gcfglobal.org/" target="_blank" rel="noopener">GCF Global Graphics</a><a class="link-btn" href="https://www.bbc.co.uk/bitesize" target="_blank" rel="noopener">BBC Bitesize Digital Graphics</a></div></section>
   </div>
-</article><article class="topic-page" id="topic-databases">
-  <div class="topic-hero" style="background:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.86)), radial-gradient(circle at 70% 25%, rgba(168,85,247,.36), transparent 34%), linear-gradient(135deg,#2e1065,#111827 55%,#020617);">
+</article>
+<article class="topic-page" id="topic-databases">
+  <div class="topic-hero" style="background:linear-gradient(rgba(0,0,0,.14),rgba(0,0,0,.86)), radial-gradient(circle at 70% 24%, rgba(168,85,247,.42), transparent 34%), linear-gradient(135deg,#2e1065,#111827 58%,#020617);">
     <div class="hero-glow"></div>
-    <button class="hero-menu" onclick="openMenu()" aria-label="Open menu">☰</button>
-    <div class="hero-text">
-      <div class="topic-label">🗃️ TOPIC 7</div>
-      <h1>Databases, Tables, Queries and Reports</h1>
-      <p>Edexcel iGCSE ICT learning page built in the same visual standard as the History Hub.</p>
-    </div>
+    <a class="hero-menu" href="#home" aria-label="Return home">☰</a>
+    <div class="hero-text"><div class="topic-label">🗃️ TOPIC 7</div><h1>Databases, Tables, Queries and Reports</h1><p>Organising data so it can be searched, filtered, sorted and reported.</p></div>
   </div>
-  <button class="close-topic" onclick="showHome()">✕ Close</button>
+  <a class="close-topic" href="#home">✕ Close</a>
   <div class="framework-panel">
-    <div class="logo-row">
-      <span class="round-logo tl">📅</span><span class="round-logo hpl">⭐</span><span class="round-logo global">🌍</span><span class="round-logo ai">🤖</span>
-    </div>
+    <div class="logo-row"><span class="round-logo tl">📅</span><span class="round-logo hpl">⭐</span><span class="round-logo global">🌍</span><span class="round-logo ai">🤖</span></div>
     <a class="badge cyan" href="#staff">📘 🔎 Inquiry</a>
     <a class="badge cyan" href="#activity-databases">📘 📝 Written Analysis</a>
     <a class="badge cyan" href="#ai-databases">📘 🧠 Metacognitive Thinking</a>
@@ -602,78 +279,25 @@ a{color:inherit;text-decoration:none} .wrap{width:min(1040px,92vw);margin:0 auto
     <a class="badge indigo" href="#ai-databases">🔍 AI Critical Thinking</a>
     <a class="badge indigo" href="#ai-databases">⚖️ AI Ethics</a>
   </div>
-  <button class="ko-btn" onclick="openKO('databases')">📚 Knowledge Organiser</button>
+  <details class="ko-details"><summary>📚 Knowledge Organiser</summary><ul><li>A database stores organised data in tables.</li><li>Records are rows; fields are columns.</li><li>Queries search or filter data using criteria.</li><li>Reports present selected database information clearly.</li></ul></details>
   <div class="main-text">
-    <section class="content-section">
-  <h2>📚 What is a database?</h2>
-  <p>A database stores structured data so it can be searched, sorted and reported efficiently. A school database might store student names, classes, attendance, assessment marks and contact information.</p>
-</section><section class="content-section">
-  <h2>🔎 Tables, queries and reports</h2>
-  <p>A table stores records in rows and fields in columns. A query extracts data based on criteria. A report presents the results clearly for a particular audience. Students should explain how databases reduce duplication and improve retrieval.</p>
-</section><section class="content-section">
-  <h2>🎯 Activity 1: Design a library database</h2>
-  <p>Design a database for a school library. Include suitable fields, data types, validation rules and two useful queries.</p>
-</section><section class="content-section">
-  <h2>🧩 Exam practice</h2>
-  <p>Explain the difference between a record and a field. Give one example of each from a school database.</p>
-</section>
-    <section class="activity-strip" id="activity-databases">
-      <h3>🎯 Student Activity: Apply the concept</h3>
-      <p>Write a structured response using accurate ICT vocabulary. Explain the concept, give an example from a school or business context, and evaluate one advantage and one limitation.</p>
-      <textarea id="ans-databases" placeholder="Write your answer here..."></textarea>
-      <div class="button-row">
-        <button onclick="autoMark('databases')">🤖 Auto Mark My Work</button>
-        <button onclick="improve('databases')">✨ Improve My Answer</button>
-        <button onclick="downloadAnswer('databases','Databases, Tables, Queries and Reports')">📥 Download as Word</button>
-      </div>
-      <div class="feedback" id="fb-databases">Feedback will appear here after auto-marking.</div>
-    </section>
-    <section class="split-section">
-      <div class="info-card purple" id="debate-databases">
-        <h3>💬 ICT Debate Lab</h3>
-        <p><strong>Question:</strong> Are databases more important than spreadsheets for managing large organisations?</p>
-        <p>Give one reason for, one reason against, and finish with your judgement.</p>
-      </div>
-      <div class="info-card gold" id="quiz-databases">
-        <h3>⚡ Quick Quiz</h3>
-        <p><strong>What is a record in a database?</strong></p>
-        <button onclick="quiz(this,true,'A printed chart')">One complete row of information</button>
-        <button onclick="quiz(this,false,'Think again. Read the topic explanation above.')">The name of a column</button>
-        <button onclick="quiz(this,false,'Think again. Read the topic explanation above.')">A printed chart</button>
-        <div class="qfb"></div>
-      </div>
-    </section>
-    <section class="quote-card">
-      <h3>🧑‍💻 Computing voice</h3>
-      <blockquote>“Without data, you are just another person with an opinion.” — W. Edwards Deming</blockquote>
-    </section>
-    <section class="ai-card" id="ai-databases">
-      <h3>🧠 Socrates ICT Tutor</h3>
-      <p>Ask for help explaining concepts, planning exam answers or evaluating ICT choices.</p>
-      <textarea id="tutor-databases" placeholder="Ask Socrates about this ICT topic..."></textarea>
-      <button onclick="tutor('databases')">Submit</button>
-      <div class="tutor-response" id="tr-databases">The tutor response will appear here.</div>
-    </section>
-    <section class="resource-box" id="resources-databases">
-      <h3>🔗 ICT Resource Links</h3>
-      <div class="resource-grid"><a class="link-btn" href="https://support.microsoft.com/access" target="_blank" rel="noopener">Microsoft Access help</a><a class="link-btn" href="https://www.bbc.co.uk/bitesize" target="_blank" rel="noopener">BBC Bitesize databases</a><a class="link-btn" href="https://www.w3schools.com/sql/" target="_blank" rel="noopener">W3Schools SQL</a></div>
-    </section>
+    <section class="content-section"><h2>📚 What databases do</h2><p>Databases are used when data needs to be stored, searched, sorted and reported efficiently. A school might use a database for students, classes, attendance, assessment data and contact details.</p></section><section class="content-section"><h2>🔎 Tables, queries and reports</h2><p>Tables store data, queries extract data and reports present data for an audience. Students should explain the benefit of validation, data types, primary keys and reduced duplication.</p></section><section class="content-section"><h2>📌 Worked example</h2><p>A library database might include fields for book ID, title, author, genre, borrower and due date. A useful query could show overdue books or all books by one author.</p></section>
+    <section class="activity-strip" id="activity-databases"><h3>🎯 Activity 1: ICT application task</h3><p>Design a library database. Include suitable fields, data types, validation rules and two queries that would help library staff.</p><textarea id="ans-databases" placeholder="Write your structured ICT answer here..."></textarea><div class="button-row"><button onclick="autoMark('databases')">🤖 Auto Mark My Work</button><button onclick="improve('databases')">✨ Improve My Answer</button><button onclick="downloadAnswer('databases','Databases, Tables, Queries and Reports')">📥 Download as Word</button></div><div class="feedback" id="fb-databases">Feedback appears here after auto-marking.</div></section>
+    <section class="split-section"><div class="info-card purple" id="debate-databases"><h3>💬 ICT Debate Lab</h3><p><strong>Question:</strong> Are databases more important than spreadsheets for managing large organisations?</p><p>Give one argument for, one argument against and then make a judgement.</p></div><div class="info-card gold" id="quiz-databases"><h3>⚡ Quick Quiz</h3><p><strong>What is a record in a database?</strong></p><button onclick="quiz(this,true,'A record is one complete set of data about one item, person or event.')">One complete row of information</button><button onclick="quiz(this,false,'Think again. Return to the topic explanation and identify the key ICT term.')">The name of a column</button><button onclick="quiz(this,false,'Not quite. Use the explanation above to check the method and purpose.')">A printed chart</button><div class="qfb"></div></div></section>
+    <section class="quote-card"><h3>🧑‍💻 Computing voice</h3><blockquote>“Without data, you are just another person with an opinion.” — W. Edwards Deming</blockquote></section>
+    <section class="ai-card" id="ai-databases"><h3>🧠 Socrates ICT Tutor</h3><p>Ask for help improving an explanation, planning an exam response or evaluating a technology choice.</p><textarea id="tutor-databases" placeholder="Ask Socrates about this ICT topic..."></textarea><button onclick="tutor('databases')">Submit</button><div class="tutor-response" id="tr-databases">The tutor response appears here.</div></section>
+    <section class="resource-box" id="resources-databases"><h3>🔗 ICT Resource Links</h3><div class="resource-grid"><a class="link-btn" href="https://support.microsoft.com/access" target="_blank" rel="noopener">Microsoft Access Help</a><a class="link-btn" href="https://www.w3schools.com/sql/" target="_blank" rel="noopener">W3Schools SQL</a><a class="link-btn" href="https://www.bbc.co.uk/bitesize" target="_blank" rel="noopener">BBC Bitesize Databases</a></div></section>
   </div>
-</article><article class="topic-page" id="topic-html">
-  <div class="topic-hero" style="background:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.86)), radial-gradient(circle at 78% 18%, rgba(56,189,248,.36), transparent 34%), linear-gradient(135deg,#0c4a6e,#111827 55%,#020617);">
+</article>
+<article class="topic-page" id="topic-html">
+  <div class="topic-hero" style="background:linear-gradient(rgba(0,0,0,.14),rgba(0,0,0,.86)), radial-gradient(circle at 78% 16%, rgba(56,189,248,.42), transparent 34%), linear-gradient(135deg,#0c4a6e,#111827 58%,#020617);">
     <div class="hero-glow"></div>
-    <button class="hero-menu" onclick="openMenu()" aria-label="Open menu">☰</button>
-    <div class="hero-text">
-      <div class="topic-label">🌍 TOPIC 8</div>
-      <h1>HTML, CSS and Web Authoring</h1>
-      <p>Edexcel iGCSE ICT learning page built in the same visual standard as the History Hub.</p>
-    </div>
+    <a class="hero-menu" href="#home" aria-label="Return home">☰</a>
+    <div class="hero-text"><div class="topic-label">🌍 TOPIC 8</div><h1>HTML, CSS and Web Authoring</h1><p>Building and evaluating web pages for a clear audience and purpose.</p></div>
   </div>
-  <button class="close-topic" onclick="showHome()">✕ Close</button>
+  <a class="close-topic" href="#home">✕ Close</a>
   <div class="framework-panel">
-    <div class="logo-row">
-      <span class="round-logo tl">📅</span><span class="round-logo hpl">⭐</span><span class="round-logo global">🌍</span><span class="round-logo ai">🤖</span>
-    </div>
+    <div class="logo-row"><span class="round-logo tl">📅</span><span class="round-logo hpl">⭐</span><span class="round-logo global">🌍</span><span class="round-logo ai">🤖</span></div>
     <a class="badge cyan" href="#staff">📘 🔎 Inquiry</a>
     <a class="badge cyan" href="#activity-html">📘 📝 Written Analysis</a>
     <a class="badge cyan" href="#ai-html">📘 🧠 Metacognitive Thinking</a>
@@ -686,79 +310,24 @@ a{color:inherit;text-decoration:none} .wrap{width:min(1040px,92vw);margin:0 auto
     <a class="badge indigo" href="#ai-html">🔍 AI Critical Thinking</a>
     <a class="badge indigo" href="#ai-html">⚖️ AI Ethics</a>
   </div>
-  <button class="ko-btn" onclick="openKO('html')">📚 Knowledge Organiser</button>
+  <details class="ko-details"><summary>📚 Knowledge Organiser</summary><ul><li>HTML structures web content.</li><li>CSS controls presentation, layout and style.</li><li>Links, images, headings, lists and tables are common web elements.</li><li>Good web design considers usability, accessibility and audience.</li></ul></details>
   <div class="main-text">
-    <section class="content-section">
-  <h2>🧱 HTML structure</h2>
-  <p>HTML is used to structure web pages. Tags such as headings, paragraphs, images, links, lists and tables describe the content. Students need to be able to read, edit and create simple web pages.</p>
-</section><section class="content-section">
-  <h2>🎨 CSS presentation</h2>
-  <p>CSS controls how the page looks: colours, fonts, spacing, borders, layout and responsiveness. In iGCSE ICT, students should understand the difference between structure and presentation, and explain why separating content and style is useful.</p>
-</section><section class="content-section">
-  <h2>🎯 Activity 1: Build a revision page</h2>
-  <p>Create a simple HTML revision page for one ICT topic. Include a heading, paragraph, image, link, list, table and CSS styling.</p>
-</section><section class="content-section">
-  <h2>🧩 Exam practice</h2>
-  <p>Explain why CSS is used with HTML. Include one example of an HTML element and one example of a CSS rule.</p>
-</section>
-    <section class="activity-strip" id="activity-html">
-      <h3>🎯 Student Activity: Apply the concept</h3>
-      <p>Write a structured response using accurate ICT vocabulary. Explain the concept, give an example from a school or business context, and evaluate one advantage and one limitation.</p>
-      <textarea id="ans-html" placeholder="Write your answer here..."></textarea>
-      <div class="button-row">
-        <button onclick="autoMark('html')">🤖 Auto Mark My Work</button>
-        <button onclick="improve('html')">✨ Improve My Answer</button>
-        <button onclick="downloadAnswer('html','HTML, CSS and Web Authoring')">📥 Download as Word</button>
-      </div>
-      <div class="feedback" id="fb-html">Feedback will appear here after auto-marking.</div>
-    </section>
-    <section class="split-section">
-      <div class="info-card purple" id="debate-html">
-        <h3>💬 ICT Debate Lab</h3>
-        <p><strong>Question:</strong> Should every student learn basic HTML and CSS?</p>
-        <p>Give one reason for, one reason against, and finish with your judgement.</p>
-      </div>
-      <div class="info-card gold" id="quiz-html">
-        <h3>⚡ Quick Quiz</h3>
-        <p><strong>Which language is mainly used to structure web page content?</strong></p>
-        <button onclick="quiz(this,true,'SQL')">HTML</button>
-        <button onclick="quiz(this,false,'Think again. Read the topic explanation above.')">CSS</button>
-        <button onclick="quiz(this,false,'Think again. Read the topic explanation above.')">SQL</button>
-        <div class="qfb"></div>
-      </div>
-    </section>
-    <section class="quote-card">
-      <h3>🧑‍💻 Computing voice</h3>
-      <blockquote>“The web is more a social creation than a technical one.” — Tim Berners-Lee</blockquote>
-    </section>
-    <section class="ai-card" id="ai-html">
-      <h3>🧠 Socrates ICT Tutor</h3>
-      <p>Ask for help explaining concepts, planning exam answers or evaluating ICT choices.</p>
-      <textarea id="tutor-html" placeholder="Ask Socrates about this ICT topic..."></textarea>
-      <button onclick="tutor('html')">Submit</button>
-      <div class="tutor-response" id="tr-html">The tutor response will appear here.</div>
-    </section>
-    <section class="resource-box" id="resources-html">
-      <h3>🔗 ICT Resource Links</h3>
-      <div class="resource-grid"><a class="link-btn" href="https://www.w3schools.com/html/" target="_blank" rel="noopener">W3Schools HTML</a><a class="link-btn" href="https://developer.mozilla.org/" target="_blank" rel="noopener">MDN Web Docs</a><a class="link-btn" href="https://www.bbc.co.uk/bitesize" target="_blank" rel="noopener">BBC Bitesize web design</a></div>
-    </section>
+    <section class="content-section"><h2>🧱 HTML structure</h2><p>HTML is used to structure web page content through tags such as headings, paragraphs, links, lists, images and tables. Students need to read, edit and create simple page structures.</p></section><section class="content-section"><h2>🎨 CSS presentation</h2><p>CSS controls presentation: colours, fonts, spacing, borders, layout and responsiveness. Separating structure and style makes pages easier to maintain and update.</p></section><section class="content-section"><h2>📌 Worked example</h2><p>A revision web page might include a main heading, summary paragraph, image with alt text, resource links, a vocabulary list and a table of key terms.</p></section>
+    <section class="activity-strip" id="activity-html"><h3>🎯 Activity 1: ICT application task</h3><p>Create a plan for an ICT revision web page. Include the HTML elements and CSS rules you would use, and explain how the page meets its audience and purpose.</p><textarea id="ans-html" placeholder="Write your structured ICT answer here..."></textarea><div class="button-row"><button onclick="autoMark('html')">🤖 Auto Mark My Work</button><button onclick="improve('html')">✨ Improve My Answer</button><button onclick="downloadAnswer('html','HTML, CSS and Web Authoring')">📥 Download as Word</button></div><div class="feedback" id="fb-html">Feedback appears here after auto-marking.</div></section>
+    <section class="split-section"><div class="info-card purple" id="debate-html"><h3>💬 ICT Debate Lab</h3><p><strong>Question:</strong> Should every student learn basic HTML and CSS?</p><p>Give one argument for, one argument against and then make a judgement.</p></div><div class="info-card gold" id="quiz-html"><h3>⚡ Quick Quiz</h3><p><strong>Which language mainly structures web page content?</strong></p><button onclick="quiz(this,true,'HTML provides the structure and content of a web page.')">HTML</button><button onclick="quiz(this,false,'Think again. Return to the topic explanation and identify the key ICT term.')">CSS</button><button onclick="quiz(this,false,'Not quite. Use the explanation above to check the method and purpose.')">SQL</button><div class="qfb"></div></div></section>
+    <section class="quote-card"><h3>🧑‍💻 Computing voice</h3><blockquote>“The web is more a social creation than a technical one.” — Tim Berners-Lee</blockquote></section>
+    <section class="ai-card" id="ai-html"><h3>🧠 Socrates ICT Tutor</h3><p>Ask for help improving an explanation, planning an exam response or evaluating a technology choice.</p><textarea id="tutor-html" placeholder="Ask Socrates about this ICT topic..."></textarea><button onclick="tutor('html')">Submit</button><div class="tutor-response" id="tr-html">The tutor response appears here.</div></section>
+    <section class="resource-box" id="resources-html"><h3>🔗 ICT Resource Links</h3><div class="resource-grid"><a class="link-btn" href="https://www.w3schools.com/html/" target="_blank" rel="noopener">W3Schools HTML</a><a class="link-btn" href="https://developer.mozilla.org/" target="_blank" rel="noopener">MDN Web Docs</a><a class="link-btn" href="https://www.bbc.co.uk/bitesize" target="_blank" rel="noopener">BBC Bitesize Web Design</a></div></section>
   </div>
 </article>
-<div class="modal" id="koModal"><div class="modal-card"><button class="close-topic" onclick="closeKO()">✕ Close</button><h2 id="koTitle">Knowledge Organiser</h2><ul id="koList"></ul></div></div>
 <script>
-const KO={'devices': {'title': 'Digital Devices — Input, Output and Storage', 'items': ['Hardware is the physical equipment used by an ICT system.', 'Input devices enter data, output devices present information, storage devices save data.', 'Primary storage is directly accessible by the CPU; secondary storage keeps files long term.', 'Peripheral devices extend what a computer system can do.']}, 'networks': {'title': 'Connectivity, Networks and Communication', 'items': ['A network connects devices so they can share data and resources.', 'LANs cover a small area; WANs cover large geographical areas.', 'The internet is a global network of connected networks.', 'Bandwidth, latency, reliability and security affect network performance.']}, 'security': {'title': 'Network Security, Data Protection and Safe Use', 'items': ['Cybersecurity protects systems, networks and data from unauthorised access.', 'Strong passwords, access rights, firewalls and anti-malware reduce risk.', 'Encryption protects data by making it unreadable without the key.', 'Users are often the weakest point in a security system.']}, 'spreadsheets': {'title': 'Spreadsheets, Formulae, Functions and Charts', 'items': ['A spreadsheet stores data in cells arranged by rows and columns.', 'Formulae perform calculations, functions are built-in formulae.', 'Absolute and relative cell references control how formulae copy.', 'Charts communicate patterns, comparisons and trends visually.']}, 'documents': {'title': 'Document Production, Formatting and Communication', 'items': ['Document production uses layout, formatting and structure to communicate information.', 'Styles, headers, footers, tables and images improve consistency and readability.', 'Audience and purpose should guide design choices.', 'Proofreading and version control help produce accurate work.']}, 'files': {'title': 'Files, Images, Layout and Digital Media', 'items': ['File type affects quality, compression and compatibility.', 'Bitmap images store pixels; vector images store shapes and paths.', 'Resolution, colour depth and compression affect file size and quality.', 'Effective layout uses proximity, contrast, alignment and repetition.']}, 'databases': {'title': 'Databases, Tables, Queries and Reports', 'items': ['A database stores organised data for searching, sorting and reporting.', 'Tables contain records and fields.', 'Queries search, filter and calculate data.', 'Reports present selected database information clearly.']}, 'html': {'title': 'HTML, CSS and Web Authoring', 'items': ['HTML structures web page content.', 'CSS controls presentation, layout and visual style.', 'Links, images, headings, lists and tables are common web elements.', 'Good web design considers usability, accessibility and audience.']}};
-function openMenu(){document.getElementById('drawer').classList.add('open')} function closeMenu(){document.getElementById('drawer').classList.remove('open')}
-function showHome(){document.querySelectorAll('.topic-page').forEach(p=>p.classList.remove('active'));document.getElementById('homeHero').classList.remove('hidden');document.getElementById('homeContent').classList.remove('hidden');window.scrollTo(0,0)}
-function openTopic(id){document.getElementById('homeHero').classList.add('hidden');document.getElementById('homeContent').classList.add('hidden');document.querySelectorAll('.topic-page').forEach(p=>p.classList.remove('active'));document.getElementById('topic-'+id).classList.add('active');window.scrollTo(0,0)}
-function openKO(id){const k=KO[id];document.getElementById('koTitle').textContent=k.title+' — Knowledge Organiser';document.getElementById('koList').innerHTML=k.items.map(x=>'<li>'+x+'</li>').join('');document.getElementById('koModal').classList.add('show')} function closeKO(){document.getElementById('koModal').classList.remove('show')}
-function quiz(btn,ok,msg){const box=btn.parentElement.querySelector('.qfb');box.textContent=(ok?'✅ Correct: ':'❌ ')+msg;box.style.color=ok?'#86efac':'#fca5a5';}
-function autoMark(id){const txt=document.getElementById('ans-'+id).value.trim();const fb=document.getElementById('fb-'+id);let score=0;if(txt.split(/\s+/).length>45)score++;if(/because|therefore|however|whereas|advantage|disadvantage|suitable|evaluate/i.test(txt))score++;if(/device|network|security|spreadsheet|database|html|css|data|storage|input|output/i.test(txt))score++;let grade=score>=3?'Above':score===2?'Inline':'Below';fb.innerHTML='<strong>Auto-mark: '+grade+'</strong><br>'+ (grade==='Above'?'Strong ICT explanation. Add a precise example or exam-style evaluation for full marks.':grade==='Inline'?'Clear start. Add more precise ICT vocabulary and explain why the method is suitable.':'Add more topic vocabulary, a real-world example and a clear advantage or limitation.');}
-function improve(id){const fb=document.getElementById('fb-'+id);fb.innerHTML='<strong>Improve this answer:</strong><br>1. Define the key ICT term.<br>2. Add a realistic school or business example.<br>3. Explain one advantage and one limitation.<br>4. End with a judgement about suitability.';}
-function downloadAnswer(id,title){const ans=document.getElementById('ans-'+id).value||'No answer written yet.';const blob=new Blob(['The Computer Science and ICT Hub
-'+title+'
 
-'+ans],{type:'application/msword'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=title.replace(/[^a-z0-9]+/gi,'_')+'_answer.doc';a.click();}
-function tutor(id){const input=document.getElementById('tutor-'+id).value.trim();const out=document.getElementById('tr-'+id);out.innerHTML='<strong>Socrates ICT Tutor:</strong><br>'+ (input?'Your idea is a useful starting point. Now improve it by naming the ICT method, explaining how it works, giving one context-specific example, and evaluating whether it is the most suitable choice.':'Ask a question or paste your answer, and I will help you improve it using ICT vocabulary, evidence and evaluation.');}
+function quiz(btn,ok,msg){var box=btn.parentElement.querySelector('.qfb');box.textContent=(ok?'✅ Correct: ':'❌ ')+msg;box.style.color=ok?'#86efac':'#fca5a5'}
+function autoMark(id){var txt=document.getElementById('ans-'+id).value.trim();var fb=document.getElementById('fb-'+id);var score=0;if(txt.split(/\s+/).length>45)score++;if(/because|therefore|however|whereas|advantage|disadvantage|suitable|evaluate/i.test(txt))score++;if(/device|network|security|spreadsheet|database|html|css|data|storage|input|output/i.test(txt))score++;var grade=score>=3?'Above':score===2?'Inline':'Below';fb.innerHTML='<strong>Auto-mark: '+grade+'</strong><br>'+(grade==='Above'?'Strong ICT explanation. Add a precise example or exam-style evaluation for full marks.':grade==='Inline'?'Clear start. Add more precise ICT vocabulary and explain why the method is suitable.':'Add more topic vocabulary, a real-world example and a clear advantage or limitation.')}
+function improve(id){document.getElementById('fb-'+id).innerHTML='<strong>Improve this answer:</strong><br>1. Define the key ICT term.<br>2. Add a realistic school or business example.<br>3. Explain one advantage and one limitation.<br>4. End with a judgement about suitability.'}
+function downloadAnswer(id,title){var ans=document.getElementById('ans-'+id).value||'No answer written yet.';var blob=new Blob(['The Computer Science and ICT Hub\n'+title+'\n\n'+ans],{type:'application/msword'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=title.replace(/[^a-z0-9]+/gi,'_')+'_answer.doc';a.click()}
+function tutor(id){var input=document.getElementById('tutor-'+id).value.trim();var out=document.getElementById('tr-'+id);out.innerHTML='<strong>Socrates ICT Tutor:</strong><br>'+(input?'Your idea is a useful starting point. Improve it by naming the ICT method, explaining how it works, giving a context-specific example, and evaluating whether it is the most suitable choice.':'Ask a question or paste your answer, and I will help you improve it using ICT vocabulary, evidence and evaluation.')}
+
 </script>
 </body>
 </html>
